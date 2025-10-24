@@ -1,5 +1,13 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import { RouterView } from 'vue-router'
+import { useSettingsStore } from '@/stores/settings'
+
+const settingsStore = useSettingsStore()
+
+onMounted(() => {
+  settingsStore.initializeSettings()
+})
 </script>
 
 <template>

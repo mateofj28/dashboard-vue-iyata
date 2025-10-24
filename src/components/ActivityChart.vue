@@ -1,10 +1,10 @@
 <template>
   <div class="w-full">
     <div class="flex items-center justify-between mb-4">
-      <h3 class="text-sm font-medium text-gray-500">Activity</h3>
+      <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400">Activity</h3>
       <select 
         v-model="selectedPeriod"
-        class="border border-gray-300 rounded-md px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        class="border border-gray-300 dark:border-gray-600 rounded-md px-2 py-1 text-xs bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
       >
         <option value="month">Month</option>
         <option value="week">Week</option>
@@ -26,7 +26,7 @@
               :title="`${item.month}: ${item.value}`"
             ></div>
           </div>
-          <span class="text-xs text-gray-400 font-medium truncate w-full text-center">
+          <span class="text-xs text-gray-400 dark:text-gray-500 font-medium truncate w-full text-center">
             {{ item.month.slice(0, 3) }}
           </span>
         </div>

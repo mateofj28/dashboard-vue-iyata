@@ -21,6 +21,32 @@ body {
   margin: 0;
   min-height: 100vh;
   background-color: #f8f9fa;
+  transition: background-color 0.3s ease;
+}
+
+body.dark {
+  background-color: #111827;
+}
+
+/* Dark mode utilities */
+.dark .bg-white {
+  background-color: #1f2937 !important;
+}
+
+.dark .border-gray-200 {
+  border-color: #374151 !important;
+}
+
+.dark .text-gray-900 {
+  color: #f9fafb !important;
+}
+
+.dark .text-gray-600 {
+  color: #d1d5db !important;
+}
+
+.dark .text-gray-500 {
+  color: #9ca3af !important;
 }
 
 #app {

@@ -1,8 +1,8 @@
 <template>
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
     <!-- Weakest Topics -->
-    <div class="bg-white rounded-lg border border-gray-200 p-6">
-      <h3 class="text-lg font-semibold text-gray-900 mb-6">Weakest Topics</h3>
+    <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+      <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-6">Weakest Topics</h3>
       <div class="space-y-4">
         <div 
           v-for="topic in weakestTopics" 
@@ -14,10 +14,10 @@
           </div>
           <div class="flex-1">
             <div class="flex items-center justify-between mb-1">
-              <h4 class="text-sm font-medium text-gray-900">{{ topic.name }}</h4>
-              <span class="text-sm font-semibold text-gray-900">{{ topic.percentage }}% Correct</span>
+              <h4 class="text-sm font-medium text-gray-900 dark:text-white">{{ topic.name }}</h4>
+              <span class="text-sm font-semibold text-gray-900 dark:text-white">{{ topic.percentage }}% Correct</span>
             </div>
-            <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
               <div 
                 :class="[
                   'h-2 rounded-full transition-all duration-300',
@@ -32,8 +32,8 @@
     </div>
 
     <!-- Strongest Topics -->
-    <div class="bg-white rounded-lg border border-gray-200 p-6">
-      <h3 class="text-lg font-semibold text-gray-900 mb-6">Strongest Topics</h3>
+    <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+      <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-6">Strongest Topics</h3>
       <div class="space-y-4">
         <div 
           v-for="topic in strongestTopics" 
@@ -45,10 +45,10 @@
           </div>
           <div class="flex-1">
             <div class="flex items-center justify-between mb-1">
-              <h4 class="text-sm font-medium text-gray-900">{{ topic.name }}</h4>
-              <span class="text-sm font-semibold text-gray-900">{{ topic.percentage }}% Correct</span>
+              <h4 class="text-sm font-medium text-gray-900 dark:text-white">{{ topic.name }}</h4>
+              <span class="text-sm font-semibold text-gray-900 dark:text-white">{{ topic.percentage }}% Correct</span>
             </div>
-            <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
               <div 
                 :class="[
                   'h-2 rounded-full transition-all duration-300',

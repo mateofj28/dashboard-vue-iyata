@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-white rounded-lg border border-gray-200 p-6">
+  <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
     <div class="flex items-center justify-between mb-4">
-      <h3 class="text-sm font-medium text-gray-500">{{ title }}</h3>
+      <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ title }}</h3>
       <component 
         v-if="icon" 
         :is="icon" 
@@ -12,7 +12,7 @@
     
     <div class="flex items-end justify-between">
       <div>
-        <div class="text-3xl font-bold text-gray-900 mb-1">
+        <div class="text-3xl font-bold text-gray-900 dark:text-white mb-1">
           {{ formattedValue }}
           <span v-if="subtitle" class="text-lg font-normal text-gray-500">
             {{ subtitle }}

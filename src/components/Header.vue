@@ -1,25 +1,25 @@
 <template>
-  <header class="bg-white border-b border-gray-200 px-4 lg:px-6 py-4">
+  <header class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-4 lg:px-6 py-4">
     <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
       <div class="flex flex-col lg:flex-row lg:items-center lg:space-x-6 space-y-4 lg:space-y-0">
         <div class="flex items-center space-x-4">
           <!-- Mobile menu button -->
           <button 
-            class="lg:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+            class="lg:hidden p-2 rounded-md text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             @click="$emit('toggleMobileMenu')"
           >
             <Menu :size="20" />
           </button>
-          <h1 class="text-xl lg:text-2xl font-semibold text-gray-900">{{ title || 'Reports' }}</h1>
+          <h1 class="text-xl lg:text-2xl font-semibold text-gray-900 dark:text-white">{{ title || 'Reports' }}</h1>
         </div>
         
         <!-- Filters - Only show on Reports page -->
         <div v-if="showFilters" class="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-2 sm:space-y-0">
           <div class="flex items-center space-x-2">
-            <label class="text-sm font-medium text-gray-700 whitespace-nowrap">Timeframe:</label>
+            <label class="text-sm font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">Timeframe:</label>
             <select 
               v-model="selectedTimeframe"
-              class="border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              class="border border-gray-300 dark:border-gray-600 rounded-md px-3 py-1 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               @change="handleTimeframeChange"
             >
               <option 
@@ -33,10 +33,10 @@
           </div>
           
           <div class="flex items-center space-x-2">
-            <label class="text-sm font-medium text-gray-700 whitespace-nowrap">People:</label>
+            <label class="text-sm font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">People:</label>
             <select 
               v-model="selectedPeople"
-              class="border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              class="border border-gray-300 dark:border-gray-600 rounded-md px-3 py-1 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               @change="handlePeopleChange"
             >
               <option 
@@ -50,10 +50,10 @@
           </div>
           
           <div class="flex items-center space-x-2">
-            <label class="text-sm font-medium text-gray-700 whitespace-nowrap">Topic:</label>
+            <label class="text-sm font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">Topic:</label>
             <select 
               v-model="selectedTopic"
-              class="border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              class="border border-gray-300 dark:border-gray-600 rounded-md px-3 py-1 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               @change="handleTopicChange"
             >
               <option 
