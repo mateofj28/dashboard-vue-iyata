@@ -4,7 +4,7 @@ Un dashboard completo de aprendizaje empresarial inspirado en el diseño de Tesl
 
 ## 🎨 Diseño de Inspiración
 
-**📐 Figma Original**: [Ver diseño de inspiración en Figma](https://www.figma.com/design/your-figma-link-here)
+**📐 Figma Original**: [Ver diseño de inspiración en Figma]https://www.figma.com/design/ITGkZafWtgIn8NvON37tPW/Analytics-Dashboard--Community-?node-id=0-1&p=f&t=ma63vpFZEkxU1gnb-0
 
 *Este proyecto es una implementación fiel del diseño proporcionado, replicando cada detalle visual y funcional con tecnologías web modernas.*
 
