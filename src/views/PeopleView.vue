@@ -64,118 +64,131 @@
       <div class="flex-1 flex flex-col">
         <!-- Header -->
         <Header 
-          title="People"
+          title="Personas"
           @toggle-mobile-menu="showMobileMenu = !showMobileMenu" 
         />
         
         <!-- People Content -->
-        <main class="flex-1 p-4 lg:p-6 overflow-auto">
+        <main class="flex-1 p-3 sm:p-4 lg:p-6 overflow-auto">
           <!-- Search and Filters -->
-          <div class="mb-6">
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div class="relative">
-                <Search :size="20" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500" />
+          <div class="mb-4 sm:mb-6">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
+              <div class="relative sm:flex-1 sm:max-w-sm">
+                <Search :size="18" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 sm:w-5 sm:h-5" />
                 <input
                   v-model="searchQuery"
                   type="text"
-                  placeholder="Search people by name, department, or role..."
-                  class="pl-10 pr-4 py-2 w-full sm:w-80 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="Buscar personas..."
+                  class="pl-9 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-2.5 w-full text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>
-              <div class="flex items-center space-x-4">
+              <div class="flex flex-col sm:flex-row gap-2 sm:gap-3">
                 <select 
                   v-model="selectedDepartment"
-                  class="border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  class="w-full sm:w-48 border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
-                  <option value="all">All Departments</option>
-                  <option value="engineering">Engineering</option>
+                  <option value="all">Todos los Departamentos</option>
+                  <option value="engineering">Ingeniería</option>
                   <option value="marketing">Marketing</option>
-                  <option value="sales">Sales</option>
-                  <option value="hr">Human Resources</option>
-                  <option value="operations">Operations</option>
+                  <option value="sales">Ventas</option>
+                  <option value="hr">Recursos Humanos</option>
+                  <option value="operations">Operaciones</option>
                 </select>
                 <select 
                   v-model="selectedStatus"
-                  class="border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  class="w-full sm:w-32 border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
-                  <option value="all">All Status</option>
-                  <option value="active">Active</option>
-                  <option value="inactive">Inactive</option>
+                  <option value="all">Todos los Estados</option>
+                  <option value="active">Activo</option>
+                  <option value="inactive">Inactivo</option>
                 </select>
               </div>
             </div>
           </div>
 
           <!-- Stats Cards -->
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-            <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mb-6 sm:mb-8">
+            <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-3 sm:p-4 lg:p-6">
               <div class="flex items-center justify-between">
-                <div>
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Total People</p>
-                  <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ peopleStats.total }}</p>
+                <div class="min-w-0 flex-1">
+                  <p class="text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400">
+                    <span class="sm:hidden">Total</span>
+                    <span class="hidden sm:inline">Total de Personas</span>
+                  </p>
+                  <p class="text-lg sm:text-xl lg:text-3xl font-bold text-gray-900 dark:text-white">{{ peopleStats.total }}</p>
                 </div>
-                <Users :size="24" class="text-blue-500" />
+                <Users :size="16" class="text-blue-500 flex-shrink-0 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
               </div>
             </div>
             
-            <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+            <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-3 sm:p-4 lg:p-6">
               <div class="flex items-center justify-between">
-                <div>
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Active Users</p>
-                  <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ peopleStats.active }}</p>
+                <div class="min-w-0 flex-1">
+                  <p class="text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400">
+                    <span class="sm:hidden">Activos</span>
+                    <span class="hidden sm:inline">Usuarios Activos</span>
+                  </p>
+                  <p class="text-lg sm:text-xl lg:text-3xl font-bold text-gray-900 dark:text-white">{{ peopleStats.active }}</p>
                 </div>
-                <UserCheck :size="24" class="text-green-500" />
+                <UserCheck :size="16" class="text-green-500 flex-shrink-0 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
               </div>
             </div>
             
-            <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+            <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-3 sm:p-4 lg:p-6">
               <div class="flex items-center justify-between">
-                <div>
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Departments</p>
-                  <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ peopleStats.departments }}</p>
+                <div class="min-w-0 flex-1">
+                  <p class="text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400">
+                    <span class="sm:hidden">Departamentos</span>
+                    <span class="hidden sm:inline">Departamentos</span>
+                  </p>
+                  <p class="text-lg sm:text-xl lg:text-3xl font-bold text-gray-900 dark:text-white">{{ peopleStats.departments }}</p>
                 </div>
-                <Building :size="24" class="text-purple-500" />
+                <Building :size="16" class="text-purple-500 flex-shrink-0 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
               </div>
             </div>
             
-            <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+            <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-3 sm:p-4 lg:p-6">
               <div class="flex items-center justify-between">
-                <div>
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Avg. Completion</p>
-                  <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ peopleStats.avgCompletion }}%</p>
+                <div class="min-w-0 flex-1">
+                  <p class="text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400">
+                    <span class="sm:hidden">Promedio</span>
+                    <span class="hidden sm:inline">Promedio de Finalización</span>
+                  </p>
+                  <p class="text-lg sm:text-xl lg:text-3xl font-bold text-gray-900 dark:text-white">{{ peopleStats.avgCompletion }}%</p>
                 </div>
-                <TrendingUp :size="24" class="text-orange-500" />
+                <TrendingUp :size="16" class="text-orange-500 flex-shrink-0 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
               </div>
             </div>
           </div>
 
-          <!-- People Table -->
+          <!-- People Table/Cards -->
           <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
-            <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Team Members</h3>
+            <div class="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 border-b border-gray-200 dark:border-gray-700">
+              <h3 class="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">Miembros del Equipo</h3>
             </div>
             
-            <div class="overflow-x-auto">
+            <!-- Desktop Table View -->
+            <div class="hidden lg:block overflow-x-auto">
               <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                 <thead class="bg-gray-50 dark:bg-gray-700">
                   <tr>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                      Person
+                      Persona
                     </th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                      Department
+                      Departamento
                     </th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                      Role
+                      Rol
                     </th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                      Progress
+                      Progreso
                     </th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                      Last Active
+                      Última Actividad
                     </th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                      Status
+                      Estado
                     </th>
                   </tr>
                 </thead>
@@ -237,6 +250,65 @@
                 </tbody>
               </table>
             </div>
+
+            <!-- Mobile Cards View -->
+            <div class="lg:hidden divide-y divide-gray-200 dark:divide-gray-700">
+              <div 
+                v-for="person in filteredPeople" 
+                :key="person.id"
+                class="p-3 sm:p-4 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              >
+                <div class="flex items-start space-x-3">
+                  <img 
+                    :src="person.avatar" 
+                    :alt="person.name"
+                    class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover flex-shrink-0"
+                  />
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-start justify-between gap-2">
+                      <div class="flex-1 min-w-0">
+                        <h4 class="text-sm font-medium text-gray-900 dark:text-white truncate">{{ person.name }}</h4>
+                        <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 truncate">{{ person.email }}</p>
+                        <div class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                          <span class="truncate block sm:inline">{{ person.department }}</span>
+                          <span class="hidden sm:inline"> • </span>
+                          <span class="truncate block sm:inline">{{ person.role }}</span>
+                        </div>
+                      </div>
+                      <span :class="[
+                        'inline-flex px-1.5 py-0.5 text-xs font-semibold rounded-full flex-shrink-0',
+                        person.status === 'active' 
+                          ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200' 
+                          : 'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200'
+                      ]">
+                        {{ person.status }}
+                      </span>
+                    </div>
+                    
+                    <div class="mt-2 sm:mt-3">
+                      <div class="flex items-center">
+                        <div class="flex-1 bg-gray-200 dark:bg-gray-600 rounded-full h-1.5 sm:h-2 mr-2 sm:mr-3">
+                          <div 
+                            :class="[
+                              'h-1.5 sm:h-2 rounded-full',
+                              person.progress >= 80 ? 'bg-green-500' :
+                              person.progress >= 60 ? 'bg-blue-500' :
+                              person.progress >= 40 ? 'bg-orange-500' : 'bg-red-500'
+                            ]"
+                            :style="{ width: `${person.progress}%` }"
+                          ></div>
+                        </div>
+                        <span class="text-xs sm:text-sm font-medium text-gray-900 dark:text-white flex-shrink-0">{{ person.progress }}%</span>
+                      </div>
+                    </div>
+                    
+                    <div class="mt-1 sm:mt-2 text-xs text-gray-500 dark:text-gray-400">
+                      {{ person.lastActive }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </main>
       </div>
@@ -261,7 +333,9 @@ import {
 } from 'lucide-vue-next'
 import Sidebar from '@/components/Sidebar.vue'
 import Header from '@/components/Header.vue'
+import { useI18n } from '@/composables/useI18n'
 
+const { t } = useI18n()
 const showMobileMenu = ref(false)
 const searchQuery = ref('')
 const selectedDepartment = ref('all')

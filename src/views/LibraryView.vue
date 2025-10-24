@@ -64,7 +64,7 @@
       <div class="flex-1 flex flex-col">
         <!-- Header -->
         <Header 
-          title="Library"
+          title="Biblioteca"
           @toggle-mobile-menu="showMobileMenu = !showMobileMenu" 
         />
         
@@ -78,7 +78,7 @@
                 <input
                   v-model="searchQuery"
                   type="text"
-                  placeholder="Search courses, topics, or content..."
+                  placeholder="Buscar cursos, temas o contenido..."
                   class="pl-10 pr-4 py-2 w-full sm:w-80 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>
@@ -87,11 +87,11 @@
                   v-model="selectedCategory"
                   class="border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
-                  <option value="all">All Categories</option>
-                  <option value="security">Security</option>
-                  <option value="compliance">Compliance</option>
-                  <option value="safety">Safety</option>
-                  <option value="networking">Networking</option>
+                  <option value="all">Todas las Categorías</option>
+                  <option value="security">Seguridad</option>
+                  <option value="compliance">Cumplimiento</option>
+                  <option value="safety">Seguridad</option>
+                  <option value="networking">Redes</option>
                 </select>
               </div>
             </div>
@@ -102,7 +102,7 @@
             <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
               <div class="flex items-center justify-between">
                 <div>
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Total Courses</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Total de Cursos</p>
                   <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ libraryStats.totalCourses }}</p>
                 </div>
                 <BookOpen :size="24" class="text-blue-500" />
@@ -112,7 +112,7 @@
             <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
               <div class="flex items-center justify-between">
                 <div>
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Completed</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Completados</p>
                   <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ libraryStats.completed }}</p>
                 </div>
                 <CheckCircle :size="24" class="text-green-500" />
@@ -122,7 +122,7 @@
             <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
               <div class="flex items-center justify-between">
                 <div>
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">In Progress</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">En Progreso</p>
                   <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ libraryStats.inProgress }}</p>
                 </div>
                 <Clock :size="24" class="text-orange-500" />
@@ -132,7 +132,7 @@
             <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
               <div class="flex items-center justify-between">
                 <div>
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Avg. Score</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Puntuación Promedio</p>
                   <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ libraryStats.avgScore }}%</p>
                 </div>
                 <Award :size="24" class="text-purple-500" />
@@ -229,7 +229,9 @@ import {
 } from 'lucide-vue-next'
 import Sidebar from '@/components/Sidebar.vue'
 import Header from '@/components/Header.vue'
+import { useI18n } from '@/composables/useI18n'
 
+const { t } = useI18n()
 const showMobileMenu = ref(false)
 const searchQuery = ref('')
 const selectedCategory = ref('all')

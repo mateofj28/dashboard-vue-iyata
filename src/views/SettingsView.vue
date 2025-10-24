@@ -47,7 +47,7 @@
       <!-- Main Content -->
       <div class="flex-1 flex flex-col">
         <!-- Header -->
-        <Header title="Settings" :show-filters="false" @toggle-mobile-menu="showMobileMenu = !showMobileMenu" />
+        <Header title="Configuración" :show-filters="false" @toggle-mobile-menu="showMobileMenu = !showMobileMenu" />
 
         <!-- Settings Content -->
         <main class="flex-1 p-4 lg:p-6 overflow-auto">
@@ -58,7 +58,7 @@
               <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white flex items-center">
                   <User :size="20" class="mr-2" />
-                  Profile Settings
+                  Configuración del Perfil
                 </h3>
               </div>
               <div class="p-6">
@@ -80,28 +80,28 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Full Name</label>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Nombre Completo</label>
                     <input v-model="userProfile.name" type="text"
                       class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
                   </div>
                   <div>
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email</label>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Correo Electrónico</label>
                     <input v-model="userProfile.email" type="email"
                       class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
                   </div>
                   <div>
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Department</label>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Departamento</label>
                     <select v-model="userProfile.department"
                       class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                      <option value="engineering">Engineering</option>
+                      <option value="engineering">Ingeniería</option>
                       <option value="marketing">Marketing</option>
-                      <option value="sales">Sales</option>
-                      <option value="hr">Human Resources</option>
-                      <option value="operations">Operations</option>
+                      <option value="sales">Ventas</option>
+                      <option value="hr">Recursos Humanos</option>
+                      <option value="operations">Operaciones</option>
                     </select>
                   </div>
                   <div>
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Role</label>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Cargo</label>
                     <input v-model="userProfile.role" type="text"
                       class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
                   </div>
@@ -121,8 +121,8 @@
               <div class="p-6 space-y-4">
                 <div class="flex items-center justify-between">
                   <div>
-                    <h4 class="text-sm font-medium text-gray-900 dark:text-white">Email Notifications</h4>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">Receive notifications via email</p>
+                    <h4 class="text-sm font-medium text-gray-900 dark:text-white">Notificaciones por Correo</h4>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Recibir notificaciones por correo electrónico</p>
                   </div>
                   <label class="relative inline-flex items-center cursor-pointer">
                     <input v-model="notifications.email" type="checkbox" class="sr-only peer"
@@ -135,8 +135,8 @@
 
                 <div class="flex items-center justify-between">
                   <div>
-                    <h4 class="text-sm font-medium text-gray-900 dark:text-white">Push Notifications</h4>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">Receive push notifications in browser</p>
+                    <h4 class="text-sm font-medium text-gray-900 dark:text-white">Notificaciones Push</h4>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Recibir notificaciones push en el navegador</p>
                   </div>
                   <label class="relative inline-flex items-center cursor-pointer">
                     <input v-model="notifications.push" type="checkbox" class="sr-only peer"
@@ -149,8 +149,8 @@
 
                 <div class="flex items-center justify-between">
                   <div>
-                    <h4 class="text-sm font-medium text-gray-900 dark:text-white">Course Reminders</h4>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">Get reminded about incomplete courses</p>
+                    <h4 class="text-sm font-medium text-gray-900 dark:text-white">Recordatorios de Cursos</h4>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Recibir recordatorios sobre cursos incompletos</p>
                   </div>
                   <label class="relative inline-flex items-center cursor-pointer">
                     <input v-model="notifications.courseReminders" type="checkbox" class="sr-only peer"
@@ -165,14 +165,14 @@
                 <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
                   <h4 class="text-sm font-medium text-gray-900 dark:text-white mb-4 flex items-center">
                     <Shield :size="16" class="mr-2" />
-                    Privacy & Security
+                    Privacidad y Seguridad
                   </h4>
 
                   <div class="space-y-4">
                     <div class="flex items-center justify-between">
                       <div>
-                        <h5 class="text-sm font-medium text-gray-900 dark:text-white">Data Sharing</h5>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Allow anonymous usage data collection</p>
+                        <h5 class="text-sm font-medium text-gray-900 dark:text-white">Compartir Datos</h5>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Permitir recopilación anónima de datos de uso</p>
                       </div>
                       <label class="relative inline-flex items-center cursor-pointer">
                         <input v-model="privacy.dataSharing" type="checkbox" class="sr-only peer"
@@ -185,8 +185,8 @@
 
                     <div class="flex items-center justify-between">
                       <div>
-                        <h5 class="text-sm font-medium text-gray-900 dark:text-white">Activity Tracking</h5>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Track learning progress and activity</p>
+                        <h5 class="text-sm font-medium text-gray-900 dark:text-white">Seguimiento de Actividad</h5>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Rastrear progreso de aprendizaje y actividad</p>
                       </div>
                       <label class="relative inline-flex items-center cursor-pointer">
                         <input v-model="privacy.activityTracking" type="checkbox" class="sr-only peer"
@@ -269,15 +269,15 @@
             <!-- Debug Info -->
             <div
               class="bg-yellow-100 dark:bg-yellow-900 border border-yellow-300 dark:border-yellow-700 rounded-lg p-4 mb-4">
-              <h4 class="font-medium text-yellow-800 dark:text-yellow-200 mb-2">Debug Info:</h4>
+              <h4 class="font-medium text-yellow-800 dark:text-yellow-200 mb-2">Información de Depuración:</h4>
               <p class="text-sm text-yellow-700 dark:text-yellow-300">
-                Current theme: {{ settingsStore.theme }} |
-                Is Dark Mode: {{ settingsStore.isDarkMode }} |
-                HTML has dark class: {{ hasDarkClass }}
+                Tema actual: {{ settingsStore.theme }} |
+                Modo Oscuro: {{ settingsStore.isDarkMode }} |
+                HTML tiene clase dark: {{ hasDarkClass }}
               </p>
               <button @click="testDarkMode"
                 class="mt-2 px-3 py-1 bg-yellow-600 text-white rounded text-sm hover:bg-yellow-700">
-                Test Dark Mode Toggle
+                Probar Cambio de Modo Oscuro
               </button>
             </div>
 
@@ -329,22 +329,22 @@ const { t } = useI18n()
 
 // Menu items for mobile sidebar
 const menuItems = ref([
-  { name: 'Reports', icon: BarChart3, route: { name: 'reports' } },
-  { name: 'Library', icon: Library, route: { name: 'library' } },
-  { name: 'People', icon: Users, route: { name: 'people' } },
-  { name: 'Activities', icon: Activity, route: { name: 'activities' } }
+  { name: 'Reportes', icon: BarChart3, route: { name: 'reports' } },
+  { name: 'Biblioteca', icon: Library, route: { name: 'library' } },
+  { name: 'Personas', icon: Users, route: { name: 'people' } },
+  { name: 'Actividades', icon: Activity, route: { name: 'activities' } }
 ])
 
 const supportItems = ref([
-  { name: 'Get Started', icon: HelpCircle, route: { name: 'get-started' } },
-  { name: 'Settings', icon: Settings, route: { name: 'settings' } }
+  { name: 'Comenzar', icon: HelpCircle, route: { name: 'get-started' } },
+  { name: 'Configuración', icon: Settings, route: { name: 'settings' } }
 ])
 
 // User profile data
 const userProfile = ref({
   name: 'Jesse Thomas',
   email: 'jesse.thomas@tesla.com',
-  role: 'Senior Developer',
+  role: 'Desarrollador Senior',
   department: 'engineering',
   avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face'
 })
@@ -400,11 +400,11 @@ const languageOptions = [
 
 // Timezone options
 const timezoneOptions = [
-  { value: 'UTC-8', label: 'Pacific Time (UTC-8)' },
-  { value: 'UTC-5', label: 'Eastern Time (UTC-5)' },
-  { value: 'UTC+0', label: 'Greenwich Mean Time (UTC+0)' },
-  { value: 'UTC+1', label: 'Central European Time (UTC+1)' },
-  { value: 'UTC+2', label: 'Central European Summer Time (UTC+2)' }
+  { value: 'UTC-8', label: 'Hora del Pacífico (UTC-8)' },
+  { value: 'UTC-5', label: 'Hora del Este (UTC-5)' },
+  { value: 'UTC+0', label: 'Hora de Greenwich (UTC+0)' },
+  { value: 'UTC+1', label: 'Hora Central Europea (UTC+1)' },
+  { value: 'UTC+2', label: 'Hora de Verano Central Europea (UTC+2)' }
 ]
 
 // Functions

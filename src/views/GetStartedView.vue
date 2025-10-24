@@ -64,7 +64,7 @@
       <div class="flex-1 flex flex-col">
         <!-- Header -->
         <Header 
-          title="Get Started"
+          title="Comenzar"
           :show-filters="false"
           @toggle-mobile-menu="showMobileMenu = !showMobileMenu" 
         />
@@ -80,8 +80,8 @@
                   <Rocket :size="32" />
                 </div>
                 <div>
-                  <h1 class="text-3xl font-bold mb-2">Welcome to Tesla Learning Platform</h1>
-                  <p class="text-blue-100 text-lg">Get started with your learning journey in just a few steps</p>
+                  <h1 class="text-3xl font-bold mb-2">Bienvenido a la Plataforma de Aprendizaje Tesla</h1>
+                  <p class="text-blue-100 text-lg">Comienza tu viaje de aprendizaje en solo unos pasos</p>
                 </div>
               </div>
             </div>
@@ -114,8 +114,8 @@
             <!-- Learning Paths -->
             <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden mb-8">
               <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
-                <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Recommended Learning Paths</h2>
-                <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">Choose a path that matches your role and interests</p>
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Rutas de Aprendizaje Recomendadas</h2>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">Elige una ruta que coincida con tu rol e intereses</p>
               </div>
               <div class="p-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -156,7 +156,7 @@
             <!-- Help & Resources -->
             <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
               <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
-                <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Help & Resources</h2>
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Ayuda y Recursos</h2>
               </div>
               <div class="p-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -225,25 +225,25 @@ const supportItems = ref([
 const quickStartSteps = ref([
   {
     id: 1,
-    title: 'Complete Your Profile',
-    description: 'Set up your profile information and preferences to get personalized recommendations.',
-    action: 'Go to Settings',
+    title: 'Completa tu Perfil',
+    description: 'Configura tu información de perfil y preferencias para obtener recomendaciones personalizadas.',
+    action: 'Ir a Configuración',
     icon: User,
     route: 'settings'
   },
   {
     id: 2,
-    title: 'Browse Course Library',
-    description: 'Explore our comprehensive library of courses and find topics that interest you.',
-    action: 'View Library',
+    title: 'Explora la Biblioteca de Cursos',
+    description: 'Explora nuestra biblioteca completa de cursos y encuentra temas que te interesen.',
+    action: 'Ver Biblioteca',
     icon: BookOpen,
     route: 'library'
   },
   {
     id: 3,
-    title: 'Start Learning',
-    description: 'Begin your first course and start building your knowledge base.',
-    action: 'Start Course',
+    title: 'Comienza a Aprender',
+    description: 'Comienza tu primer curso y empieza a construir tu base de conocimientos.',
+    action: 'Iniciar Curso',
     icon: Rocket,
     route: 'library'
   }
@@ -252,9 +252,9 @@ const quickStartSteps = ref([
 const learningPaths = ref([
   {
     id: 1,
-    title: 'Security Fundamentals',
-    description: 'Learn the basics of cybersecurity, data protection, and safe computing practices.',
-    duration: '2-3 weeks',
+    title: 'Fundamentos de Seguridad',
+    description: 'Aprende los conceptos básicos de ciberseguridad, protección de datos y prácticas de computación segura.',
+    duration: '2-3 semanas',
     courses: 5,
     progress: 0,
     color: 'bg-red-500',
@@ -263,9 +263,9 @@ const learningPaths = ref([
   },
   {
     id: 2,
-    title: 'Compliance & Regulations',
-    description: 'Understand regulatory requirements and compliance procedures for your role.',
-    duration: '3-4 weeks',
+    title: 'Cumplimiento y Regulaciones',
+    description: 'Comprende los requisitos regulatorios y procedimientos de cumplimiento para tu rol.',
+    duration: '3-4 semanas',
     courses: 7,
     progress: 0,
     color: 'bg-blue-500',
@@ -274,9 +274,9 @@ const learningPaths = ref([
   },
   {
     id: 3,
-    title: 'Professional Development',
-    description: 'Enhance your professional skills and advance your career with targeted training.',
-    duration: '4-6 weeks',
+    title: 'Desarrollo Profesional',
+    description: 'Mejora tus habilidades profesionales y avanza en tu carrera con entrenamiento dirigido.',
+    duration: '4-6 semanas',
     courses: 10,
     progress: 0,
     color: 'bg-green-500',
@@ -285,9 +285,9 @@ const learningPaths = ref([
   },
   {
     id: 4,
-    title: 'Safety & Wellness',
-    description: 'Learn about workplace safety, health protocols, and wellness best practices.',
-    duration: '2-3 weeks',
+    title: 'Seguridad y Bienestar',
+    description: 'Aprende sobre seguridad en el lugar de trabajo, protocolos de salud y mejores prácticas de bienestar.',
+    duration: '2-3 semanas',
     courses: 6,
     progress: 0,
     color: 'bg-orange-500',
@@ -299,26 +299,26 @@ const learningPaths = ref([
 const helpResources = ref([
   {
     id: 1,
-    title: 'User Guide',
-    description: 'Step-by-step instructions',
+    title: 'Guía de Usuario',
+    description: 'Instrucciones paso a paso',
     icon: FileText
   },
   {
     id: 2,
-    title: 'Video Tutorials',
-    description: 'Watch and learn',
+    title: 'Tutoriales en Video',
+    description: 'Mira y aprende',
     icon: Video
   },
   {
     id: 3,
-    title: 'Community Forum',
-    description: 'Ask questions & share',
+    title: 'Foro de la Comunidad',
+    description: 'Haz preguntas y comparte',
     icon: MessageCircle
   },
   {
     id: 4,
-    title: 'Contact Support',
-    description: 'Get help from our team',
+    title: 'Contactar Soporte',
+    description: 'Obtén ayuda de nuestro equipo',
     icon: Phone
   }
 ])

@@ -10,13 +10,13 @@
           >
             <Menu :size="20" />
           </button>
-          <h1 class="text-xl lg:text-2xl font-semibold text-gray-900 dark:text-white">{{ title || 'Reports' }}</h1>
+          <h1 class="text-xl lg:text-2xl font-semibold text-gray-900 dark:text-white">{{ title || 'Reportes' }}</h1>
         </div>
         
         <!-- Filters - Only show on Reports page -->
         <div v-if="showFilters" class="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-2 sm:space-y-0">
           <div class="flex items-center space-x-2">
-            <label class="text-sm font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">Timeframe:</label>
+            <label class="text-sm font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">Período:</label>
             <select 
               v-model="selectedTimeframe"
               class="border border-gray-300 dark:border-gray-600 rounded-md px-3 py-1 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -33,7 +33,7 @@
           </div>
           
           <div class="flex items-center space-x-2">
-            <label class="text-sm font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">People:</label>
+            <label class="text-sm font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">Personas:</label>
             <select 
               v-model="selectedPeople"
               class="border border-gray-300 dark:border-gray-600 rounded-md px-3 py-1 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -50,7 +50,7 @@
           </div>
           
           <div class="flex items-center space-x-2">
-            <label class="text-sm font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">Topic:</label>
+            <label class="text-sm font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">Tema:</label>
             <select 
               v-model="selectedTopic"
               class="border border-gray-300 dark:border-gray-600 rounded-md px-3 py-1 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -71,7 +71,7 @@
       <!-- Download Button -->
       <button class="flex items-center justify-center space-x-2 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
         <Download :size="16" />
-        <span class="hidden sm:inline">Download</span>
+        <span class="hidden sm:inline">Descargar</span>
       </button>
     </div>
   </header>
@@ -88,7 +88,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  title: 'Reports',
+  title: 'Reportes',
   showFilters: true
 })
 

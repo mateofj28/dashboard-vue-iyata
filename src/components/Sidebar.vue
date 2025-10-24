@@ -27,7 +27,7 @@
 
     <!-- Support Section -->
     <div class="px-4 py-6 border-t border-gray-200 dark:border-gray-700 flex-shrink-0">
-      <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">Support</div>
+      <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">Soporte</div>
       <RouterLink
         v-for="item in supportItems" 
         :key="item.name"
@@ -65,14 +65,14 @@ interface MenuItem {
 }
 
 const menuItems = ref<MenuItem[]>([
-  { name: 'Reports', icon: BarChart3, route: { name: 'reports' } },
-  { name: 'Library', icon: Library, route: { name: 'library' } },
-  { name: 'People', icon: Users, route: { name: 'people' } },
-  { name: 'Activities', icon: Activity, route: { name: 'activities' } }
+  { name: 'Reportes', icon: BarChart3, route: { name: 'reports' } },
+  { name: 'Biblioteca', icon: Library, route: { name: 'library' } },
+  { name: 'Personas', icon: Users, route: { name: 'people' } },
+  { name: 'Actividades', icon: Activity, route: { name: 'activities' } }
 ])
 
 const supportItems = ref<MenuItem[]>([
-  { name: 'Get Started', icon: HelpCircle, route: { name: 'get-started' } },
-  { name: 'Settings', icon: Settings, route: { name: 'settings' } }
+  { name: 'Comenzar', icon: HelpCircle, route: { name: 'get-started' } },
+  { name: 'Configuración', icon: Settings, route: { name: 'settings' } }
 ])
 </script>
