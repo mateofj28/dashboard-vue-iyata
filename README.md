@@ -7,7 +7,7 @@ Un dashboard completo de aprendizaje empresarial inspirado en el diseño de Tesl
 ### 📊 **Reports - Dashboard Principal**
 *Panel de control con métricas en tiempo real, filtros interactivos y análisis de conocimiento*
 
-![Reports Dashboard](https://github.com/user-attachments/assets/dashboard-reports.png)
+![alt text](image.png)
 
 **Características:**
 - 📈 Métricas principales: Usuarios activos, preguntas respondidas, duración de sesión
@@ -22,7 +22,7 @@ Un dashboard completo de aprendizaje empresarial inspirado en el diseño de Tesl
 ### 📚 **Library - Biblioteca de Cursos**
 *Catálogo completo de cursos con búsqueda avanzada y seguimiento de progreso*
 
-![Library Page](https://github.com/user-attachments/assets/library-page.png)
+![alt text](image-1.png)
 
 **Características:**
 - 🔍 Búsqueda inteligente por título, descripción y categoría
@@ -37,7 +37,7 @@ Un dashboard completo de aprendizaje empresarial inspirado en el diseño de Tesl
 ### 👥 **People - Gestión de Personas**
 *Directorio completo del equipo con estadísticas y seguimiento de progreso*
 
-![People Management](https://github.com/user-attachments/assets/people-page.png)
+![alt text](image-2.png)
 
 **Características:**
 - 👤 Directorio completo con avatares y información detallada
@@ -52,7 +52,7 @@ Un dashboard completo de aprendizaje empresarial inspirado en el diseño de Tesl
 ### ⚙️ **Settings - Configuraciones**
 *Panel de configuración completo con perfil, notificaciones y preferencias*
 
-![Settings Page](https://github.com/user-attachments/assets/settings-page.png)
+![alt text](image-3.png)
 
 **Características:**
 - 👤 Configuración de perfil con avatar editable
