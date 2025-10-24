@@ -64,7 +64,7 @@
       <div class="flex-1 flex flex-col">
         <!-- Header -->
         <Header 
-          title="Actividades"
+          :title="t('activities.title')"
           @toggle-mobile-menu="showMobileMenu = !showMobileMenu" 
         />
         
@@ -97,8 +97,8 @@
               <div class="flex items-center justify-between">
                 <div class="min-w-0 flex-1">
                   <p class="text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400">
-                    <span class="sm:hidden">Total</span>
-                    <span class="hidden sm:inline">Total de Actividades</span>
+                    <span class="sm:hidden">{{ t('common.total') }}</span>
+                    <span class="hidden sm:inline">{{ t('activities.totalActivities') }}</span>
                   </p>
                   <p class="text-lg sm:text-xl lg:text-3xl font-bold text-gray-900 dark:text-white">{{ activityStats.total }}</p>
                 </div>
@@ -110,8 +110,8 @@
               <div class="flex items-center justify-between">
                 <div class="min-w-0 flex-1">
                   <p class="text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400">
-                    <span class="sm:hidden">Hoy</span>
-                    <span class="hidden sm:inline">Completadas Hoy</span>
+                    <span class="sm:hidden">{{ t('common.today') }}</span>
+                    <span class="hidden sm:inline">{{ t('activities.completedToday') }}</span>
                   </p>
                   <p class="text-lg sm:text-xl lg:text-3xl font-bold text-gray-900 dark:text-white">{{ activityStats.completedToday }}</p>
                 </div>
@@ -123,8 +123,8 @@
               <div class="flex items-center justify-between">
                 <div class="min-w-0 flex-1">
                   <p class="text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400">
-                    <span class="sm:hidden">En Progreso</span>
-                    <span class="hidden sm:inline">En Progreso</span>
+                    <span class="sm:hidden">{{ t('activities.inProgress') }}</span>
+                    <span class="hidden sm:inline">{{ t('activities.inProgress') }}</span>
                   </p>
                   <p class="text-lg sm:text-xl lg:text-3xl font-bold text-gray-900 dark:text-white">{{ activityStats.inProgress }}</p>
                 </div>
@@ -136,8 +136,8 @@
               <div class="flex items-center justify-between">
                 <div class="min-w-0 flex-1">
                   <p class="text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400">
-                    <span class="sm:hidden">Promedio</span>
-                    <span class="hidden sm:inline">Duración Promedio</span>
+                    <span class="sm:hidden">{{ t('common.avg') }}</span>
+                    <span class="hidden sm:inline">{{ t('activities.avgDuration') }}</span>
                   </p>
                   <p class="text-lg sm:text-xl lg:text-3xl font-bold text-gray-900 dark:text-white">{{ activityStats.avgDuration }}</p>
                 </div>
@@ -149,7 +149,7 @@
           <!-- Activity Feed -->
           <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
             <div class="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 border-b border-gray-200 dark:border-gray-700">
-              <h3 class="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">Actividades Recientes</h3>
+              <h3 class="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">{{ t('activities.recentActivities') }}</h3>
             </div>
             
             <div class="divide-y divide-gray-200 dark:divide-gray-700">
@@ -182,7 +182,7 @@
                           </span>
                         </div>
                       </div>
-                      <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 flex-shrink-0">{{ activity.timestamp }}</p>
+                      <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 flex-shrink-0">{{ translateActivityTime(activity.timestamp) }}</p>
                     </div>
                     
                     <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-1">{{ activity.description }}</p>
@@ -247,6 +247,22 @@ const { t } = useI18n()
 const showMobileMenu = ref(false)
 const activeTab = ref('all')
 
+// Translation functions
+const translateActivityTime = (timeStr: string) => {
+  if (timeStr.includes('hour ago')) {
+    return t('time.hourAgo')
+  } else if (timeStr.includes('hours ago')) {
+    const hours = timeStr.match(/(\d+)/)?.[1] || '0'
+    return t('time.hoursAgo').replace('{count}', hours)
+  } else if (timeStr.includes('day ago')) {
+    return t('time.dayAgo')
+  } else if (timeStr.includes('days ago')) {
+    const days = timeStr.match(/(\d+)/)?.[1] || '0'
+    return t('time.daysAgo').replace('{count}', days)
+  }
+  return timeStr
+}
+
 // Menu items for mobile sidebar
 const menuItems = ref([
   { name: 'Reports', icon: BarChart3, route: { name: 'reports' } },
@@ -261,10 +277,10 @@ const supportItems = ref([
 ])
 
 const tabs = ref([
-  { id: 'all', name: 'Todas las Actividades' },
-  { id: 'courses', name: 'Cursos' },
-  { id: 'assessments', name: 'Evaluaciones' },
-  { id: 'discussions', name: 'Discusiones' }
+  { id: 'all', name: t('activities.allActivities') },
+  { id: 'courses', name: t('activities.courses') },
+  { id: 'assessments', name: t('activities.assessments') },
+  { id: 'discussions', name: t('activities.discussions') }
 ])
 
 const activityStats = ref({
@@ -274,12 +290,12 @@ const activityStats = ref({
   avgDuration: '12m'
 })
 
-const activities = ref([
+const activities = computed(() => [
   {
     id: 1,
     type: 'course',
-    title: 'Food Safety Fundamentals',
-    description: 'Completed module 3: Temperature Control and Storage',
+    title: t('courses.foodSafetyTitle'),
+    description: t('activities.completedModule'),
     status: 'completed',
     timestamp: '2 hours ago',
     duration: '15 min',
@@ -292,8 +308,8 @@ const activities = ref([
   {
     id: 2,
     type: 'assessment',
-    title: 'Covid Protocols Assessment',
-    description: 'Passed final assessment with excellent score',
+    title: t('activities.covidAssessment'),
+    description: t('activities.passedAssessment'),
     status: 'completed',
     timestamp: '3 hours ago',
     duration: '8 min',
@@ -306,8 +322,8 @@ const activities = ref([
   {
     id: 3,
     type: 'course',
-    title: 'Cyber Security Basics',
-    description: 'Started new course - Introduction to Cybersecurity',
+    title: t('courses.cyberSecurityTitle'),
+    description: t('activities.startedCourse'),
     status: 'in-progress',
     timestamp: '5 hours ago',
     duration: '45 min',
@@ -319,8 +335,8 @@ const activities = ref([
   {
     id: 4,
     type: 'discussion',
-    title: 'Best Practices Discussion',
-    description: 'Participated in team discussion about compliance procedures',
+    title: t('activities.bestPracticesDiscussion'),
+    description: t('activities.teamDiscussion'),
     status: 'completed',
     timestamp: '1 day ago',
     duration: '22 min',
@@ -332,8 +348,8 @@ const activities = ref([
   {
     id: 5,
     type: 'assessment',
-    title: 'Company Networking Quiz',
-    description: 'Attempted networking fundamentals quiz',
+    title: t('activities.networkingQuiz'),
+    description: t('activities.attemptedQuiz'),
     status: 'failed',
     timestamp: '1 day ago',
     duration: '12 min',
@@ -346,8 +362,8 @@ const activities = ref([
   {
     id: 6,
     type: 'course',
-    title: 'Social Media Policies',
-    description: 'Completed all modules and final assessment',
+    title: t('courses.socialMediaTitle'),
+    description: t('activities.completedAllModules'),
     status: 'completed',
     timestamp: '2 days ago',
     duration: '25 min',
@@ -360,8 +376,8 @@ const activities = ref([
   {
     id: 7,
     type: 'course',
-    title: 'Compliance Basics Procedures',
-    description: 'Working through regulatory compliance modules',
+    title: t('courses.complianceBasicsTitle'),
+    description: t('activities.workingThrough'),
     status: 'in-progress',
     timestamp: '3 days ago',
     duration: '18 min',
@@ -373,8 +389,8 @@ const activities = ref([
   {
     id: 8,
     type: 'discussion',
-    title: 'Safety Protocol Updates',
-    description: 'Reviewed new safety guidelines with team',
+    title: t('activities.safetyReview'),
+    description: t('activities.reviewedGuidelines'),
     status: 'completed',
     timestamp: '4 days ago',
     duration: '35 min',

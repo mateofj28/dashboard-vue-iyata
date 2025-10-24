@@ -40,7 +40,7 @@
 
           <!-- Support Section -->
           <div class="px-4 py-6 border-t border-gray-200 dark:border-gray-700">
-            <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">Soporte</div>
+            <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">{{ t('nav.support') }}</div>
             <RouterLink
               v-for="item in supportItems" 
               :key="item.name"
@@ -59,7 +59,7 @@
       <div class="flex-1 flex flex-col">
         <!-- Header -->
         <Header 
-          title="Reportes" 
+          :title="t('nav.reports')" 
           :show-filters="true"
           @toggle-mobile-menu="showMobileMenu = !showMobileMenu" 
         />
@@ -71,7 +71,7 @@
             <!-- Stats Cards -->
             <div class="xl:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <StatsCard
-                title="Usuarios Activos"
+                :title="t('reports.activeUsers')"
                 :value="stats.activeUsers"
                 :subtitle="`/${stats.totalUsers}`"
                 :show-chart="true"
@@ -80,7 +80,7 @@
               />
               
               <StatsCard
-                title="Preguntas Respondidas"
+                :title="t('reports.questionsAnswered')"
                 :value="stats.questionsAnswered"
                 :show-chart="true"
                 :chart-data="[100, 120, 140, 130, 160, 150, 180]"
@@ -88,7 +88,7 @@
               />
               
               <StatsCard
-                title="Duración Promedio de Sesión"
+                :title="t('reports.avgSessionLength')"
                 :value="stats.averageSessionLength"
                 :show-chart="true"
                 :chart-data="[2, 2.5, 3, 2.8, 3.5, 3.2, 4]"
@@ -107,7 +107,7 @@
           <!-- Knowledge Stats -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <StatsCard
-              title="Conocimiento Inicial"
+              :title="t('reports.startingKnowledge')"
               :value="knowledge.startingKnowledge"
               subtitle="%"
               :show-chart="true"
@@ -116,7 +116,7 @@
             />
             
             <StatsCard
-              title="Conocimiento Actual"
+              :title="t('reports.currentKnowledge')"
               :value="knowledge.currentKnowledge"
               subtitle="%"
               :show-chart="true"
@@ -125,7 +125,7 @@
             />
             
             <StatsCard
-              title="Ganancia de Conocimiento"
+              :title="t('reports.knowledgeGain')"
               :value="knowledgeGainFormatted"
               trend="+34%"
               trend-direction="up"
@@ -166,9 +166,11 @@ import StatsCard from '@/components/StatsCard.vue'
 import ActivityChart from '@/components/ActivityChart.vue'
 import TopicsSection from '@/components/TopicsSection.vue'
 import LeaderboardSection from '@/components/LeaderboardSection.vue'
+import { useI18n } from '@/composables/useI18n'
 
 const dashboardStore = useDashboardStore()
 const showMobileMenu = ref(false)
+const { t } = useI18n()
 
 const stats = computed(() => dashboardStore.stats)
 const knowledge = computed(() => dashboardStore.knowledge)
@@ -176,15 +178,15 @@ const knowledgeGainFormatted = computed(() => dashboardStore.knowledgeGainFormat
 
 // Menu items for mobile sidebar
 const menuItems = ref([
-  { name: 'Reportes', icon: BarChart3, route: { name: 'reports' } },
-  { name: 'Biblioteca', icon: Library, route: { name: 'library' } },
-  { name: 'Personas', icon: Users, route: { name: 'people' } },
-  { name: 'Actividades', icon: Activity, route: { name: 'activities' } }
+  { name: t('nav.reports'), icon: BarChart3, route: { name: 'reports' } },
+  { name: t('nav.library'), icon: Library, route: { name: 'library' } },
+  { name: t('nav.people'), icon: Users, route: { name: 'people' } },
+  { name: t('nav.activities'), icon: Activity, route: { name: 'activities' } }
 ])
 
 const supportItems = ref([
-  { name: 'Comenzar', icon: HelpCircle, route: { name: 'get-started' } },
-  { name: 'Configuración', icon: Settings, route: { name: 'settings' } }
+  { name: t('nav.getStarted'), icon: HelpCircle, route: { name: 'get-started' } },
+  { name: t('nav.settings'), icon: Settings, route: { name: 'settings' } }
 ])
 
 // Initialize store data on component mount

@@ -27,7 +27,7 @@
 
     <!-- Support Section -->
     <div class="px-4 py-6 border-t border-gray-200 dark:border-gray-700 flex-shrink-0">
-      <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">Soporte</div>
+      <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">{{ t('nav.support') }}</div>
       <RouterLink
         v-for="item in supportItems" 
         :key="item.name"
@@ -57,6 +57,7 @@ import {
   HelpCircle, 
   Settings 
 } from 'lucide-vue-next'
+import { useI18n } from '@/composables/useI18n'
 
 interface MenuItem {
   name: string
@@ -64,15 +65,17 @@ interface MenuItem {
   route: { name: string }
 }
 
+const { t } = useI18n()
+
 const menuItems = ref<MenuItem[]>([
-  { name: 'Reportes', icon: BarChart3, route: { name: 'reports' } },
-  { name: 'Biblioteca', icon: Library, route: { name: 'library' } },
-  { name: 'Personas', icon: Users, route: { name: 'people' } },
-  { name: 'Actividades', icon: Activity, route: { name: 'activities' } }
+  { name: t('nav.reports'), icon: BarChart3, route: { name: 'reports' } },
+  { name: t('nav.library'), icon: Library, route: { name: 'library' } },
+  { name: t('nav.people'), icon: Users, route: { name: 'people' } },
+  { name: t('nav.activities'), icon: Activity, route: { name: 'activities' } }
 ])
 
 const supportItems = ref<MenuItem[]>([
-  { name: 'Comenzar', icon: HelpCircle, route: { name: 'get-started' } },
-  { name: 'Configuración', icon: Settings, route: { name: 'settings' } }
+  { name: t('nav.getStarted'), icon: HelpCircle, route: { name: 'get-started' } },
+  { name: t('nav.settings'), icon: Settings, route: { name: 'settings' } }
 ])
 </script>

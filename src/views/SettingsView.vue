@@ -47,7 +47,7 @@
       <!-- Main Content -->
       <div class="flex-1 flex flex-col">
         <!-- Header -->
-        <Header title="Configuración" :show-filters="false" @toggle-mobile-menu="showMobileMenu = !showMobileMenu" />
+        <Header :title="t('nav.settings')" :show-filters="false" @toggle-mobile-menu="showMobileMenu = !showMobileMenu" />
 
         <!-- Settings Content -->
         <main class="flex-1 p-4 lg:p-6 overflow-auto">
@@ -58,7 +58,7 @@
               <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white flex items-center">
                   <User :size="20" class="mr-2" />
-                  Configuración del Perfil
+                  {{ t('settings.profile') }}
                 </h3>
               </div>
               <div class="p-6">
@@ -80,28 +80,28 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Nombre Completo</label>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{{ t('settings.fullName') }}</label>
                     <input v-model="userProfile.name" type="text"
                       class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
                   </div>
                   <div>
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Correo Electrónico</label>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{{ t('settings.email') }}</label>
                     <input v-model="userProfile.email" type="email"
                       class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
                   </div>
                   <div>
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Departamento</label>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{{ t('settings.department') }}</label>
                     <select v-model="userProfile.department"
                       class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                      <option value="engineering">Ingeniería</option>
-                      <option value="marketing">Marketing</option>
-                      <option value="sales">Ventas</option>
-                      <option value="hr">Recursos Humanos</option>
-                      <option value="operations">Operaciones</option>
+                      <option value="engineering">{{ t('departments.engineering') }}</option>
+                      <option value="marketing">{{ t('departments.marketing') }}</option>
+                      <option value="sales">{{ t('departments.sales') }}</option>
+                      <option value="hr">{{ t('departments.hr') }}</option>
+                      <option value="operations">{{ t('departments.operations') }}</option>
                     </select>
                   </div>
                   <div>
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Cargo</label>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{{ t('settings.role') }}</label>
                     <input v-model="userProfile.role" type="text"
                       class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
                   </div>
@@ -121,8 +121,8 @@
               <div class="p-6 space-y-4">
                 <div class="flex items-center justify-between">
                   <div>
-                    <h4 class="text-sm font-medium text-gray-900 dark:text-white">Notificaciones por Correo</h4>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">Recibir notificaciones por correo electrónico</p>
+                    <h4 class="text-sm font-medium text-gray-900 dark:text-white">{{ t('settings.emailNotifications') }}</h4>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">{{ t('settings.emailNotificationsDesc') }}</p>
                   </div>
                   <label class="relative inline-flex items-center cursor-pointer">
                     <input v-model="notifications.email" type="checkbox" class="sr-only peer"
@@ -135,8 +135,8 @@
 
                 <div class="flex items-center justify-between">
                   <div>
-                    <h4 class="text-sm font-medium text-gray-900 dark:text-white">Notificaciones Push</h4>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">Recibir notificaciones push en el navegador</p>
+                    <h4 class="text-sm font-medium text-gray-900 dark:text-white">{{ t('settings.pushNotifications') }}</h4>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">{{ t('settings.pushNotificationsDesc') }}</p>
                   </div>
                   <label class="relative inline-flex items-center cursor-pointer">
                     <input v-model="notifications.push" type="checkbox" class="sr-only peer"
@@ -149,8 +149,8 @@
 
                 <div class="flex items-center justify-between">
                   <div>
-                    <h4 class="text-sm font-medium text-gray-900 dark:text-white">Recordatorios de Cursos</h4>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">Recibir recordatorios sobre cursos incompletos</p>
+                    <h4 class="text-sm font-medium text-gray-900 dark:text-white">{{ t('settings.courseReminders') }}</h4>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">{{ t('settings.courseRemindersDesc') }}</p>
                   </div>
                   <label class="relative inline-flex items-center cursor-pointer">
                     <input v-model="notifications.courseReminders" type="checkbox" class="sr-only peer"
@@ -165,14 +165,14 @@
                 <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
                   <h4 class="text-sm font-medium text-gray-900 dark:text-white mb-4 flex items-center">
                     <Shield :size="16" class="mr-2" />
-                    Privacidad y Seguridad
+                    {{ t('settings.privacySecurity') }}
                   </h4>
 
                   <div class="space-y-4">
                     <div class="flex items-center justify-between">
                       <div>
-                        <h5 class="text-sm font-medium text-gray-900 dark:text-white">Compartir Datos</h5>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Permitir recopilación anónima de datos de uso</p>
+                        <h5 class="text-sm font-medium text-gray-900 dark:text-white">{{ t('settings.dataSharing') }}</h5>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">{{ t('settings.dataSharingDesc') }}</p>
                       </div>
                       <label class="relative inline-flex items-center cursor-pointer">
                         <input v-model="privacy.dataSharing" type="checkbox" class="sr-only peer"
@@ -185,8 +185,8 @@
 
                     <div class="flex items-center justify-between">
                       <div>
-                        <h5 class="text-sm font-medium text-gray-900 dark:text-white">Seguimiento de Actividad</h5>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Rastrear progreso de aprendizaje y actividad</p>
+                        <h5 class="text-sm font-medium text-gray-900 dark:text-white">{{ t('settings.activityTracking') }}</h5>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">{{ t('settings.activityTrackingDesc') }}</p>
                       </div>
                       <label class="relative inline-flex items-center cursor-pointer">
                         <input v-model="privacy.activityTracking" type="checkbox" class="sr-only peer"
@@ -269,15 +269,15 @@
             <!-- Debug Info -->
             <div
               class="bg-yellow-100 dark:bg-yellow-900 border border-yellow-300 dark:border-yellow-700 rounded-lg p-4 mb-4">
-              <h4 class="font-medium text-yellow-800 dark:text-yellow-200 mb-2">Información de Depuración:</h4>
+              <h4 class="font-medium text-yellow-800 dark:text-yellow-200 mb-2">{{ t('settings.debugInfo') }}:</h4>
               <p class="text-sm text-yellow-700 dark:text-yellow-300">
-                Tema actual: {{ settingsStore.theme }} |
-                Modo Oscuro: {{ settingsStore.isDarkMode }} |
-                HTML tiene clase dark: {{ hasDarkClass }}
+                {{ t('settings.currentTheme') }}: {{ settingsStore.theme }} |
+                {{ t('settings.isDarkMode') }}: {{ settingsStore.isDarkMode }} |
+                {{ t('settings.htmlHasDarkClass') }}: {{ hasDarkClass }}
               </p>
               <button @click="testDarkMode"
                 class="mt-2 px-3 py-1 bg-yellow-600 text-white rounded text-sm hover:bg-yellow-700">
-                Probar Cambio de Modo Oscuro
+                {{ t('settings.testDarkModeToggle') }}
               </button>
             </div>
 
@@ -329,15 +329,15 @@ const { t } = useI18n()
 
 // Menu items for mobile sidebar
 const menuItems = ref([
-  { name: 'Reportes', icon: BarChart3, route: { name: 'reports' } },
-  { name: 'Biblioteca', icon: Library, route: { name: 'library' } },
-  { name: 'Personas', icon: Users, route: { name: 'people' } },
-  { name: 'Actividades', icon: Activity, route: { name: 'activities' } }
+  { name: t('nav.reports'), icon: BarChart3, route: { name: 'reports' } },
+  { name: t('nav.library'), icon: Library, route: { name: 'library' } },
+  { name: t('nav.people'), icon: Users, route: { name: 'people' } },
+  { name: t('nav.activities'), icon: Activity, route: { name: 'activities' } }
 ])
 
 const supportItems = ref([
-  { name: 'Comenzar', icon: HelpCircle, route: { name: 'get-started' } },
-  { name: 'Configuración', icon: Settings, route: { name: 'settings' } }
+  { name: t('nav.getStarted'), icon: HelpCircle, route: { name: 'get-started' } },
+  { name: t('nav.settings'), icon: Settings, route: { name: 'settings' } }
 ])
 
 // User profile data
@@ -409,11 +409,7 @@ const timezoneOptions = [
 
 // Functions
 const saveSettings = () => {
-  const message = settingsStore.language === 'es' ? '¡Configuración guardada exitosamente!' :
-    settingsStore.language === 'fr' ? 'Paramètres enregistrés avec succès!' :
-      settingsStore.language === 'de' ? 'Einstellungen erfolgreich gespeichert!' :
-        'Settings saved successfully!'
-  alert(message)
+  alert(t('settings.saveSuccess'))
 }
 
 const testDarkMode = () => {

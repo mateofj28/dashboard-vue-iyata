@@ -64,7 +64,7 @@
       <div class="flex-1 flex flex-col">
         <!-- Header -->
         <Header 
-          title="Biblioteca"
+          :title="t('library.title')"
           @toggle-mobile-menu="showMobileMenu = !showMobileMenu" 
         />
         
@@ -87,11 +87,11 @@
                   v-model="selectedCategory"
                   class="border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
-                  <option value="all">Todas las Categorías</option>
-                  <option value="security">Seguridad</option>
-                  <option value="compliance">Cumplimiento</option>
-                  <option value="safety">Seguridad</option>
-                  <option value="networking">Redes</option>
+                  <option value="all">{{ t('library.allCategories') }}</option>
+                  <option value="security">{{ t('categories.security') }}</option>
+                  <option value="compliance">{{ t('categories.compliance') }}</option>
+                  <option value="safety">{{ t('categories.safety') }}</option>
+                  <option value="networking">{{ t('categories.networking') }}</option>
                 </select>
               </div>
             </div>
@@ -102,7 +102,7 @@
             <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
               <div class="flex items-center justify-between">
                 <div>
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Total de Cursos</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ t('library.totalCourses') }}</p>
                   <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ libraryStats.totalCourses }}</p>
                 </div>
                 <BookOpen :size="24" class="text-blue-500" />
@@ -112,7 +112,7 @@
             <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
               <div class="flex items-center justify-between">
                 <div>
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Completados</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ t('library.completed') }}</p>
                   <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ libraryStats.completed }}</p>
                 </div>
                 <CheckCircle :size="24" class="text-green-500" />
@@ -122,7 +122,7 @@
             <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
               <div class="flex items-center justify-between">
                 <div>
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">En Progreso</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ t('activities.inProgress') }}</p>
                   <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ libraryStats.inProgress }}</p>
                 </div>
                 <Clock :size="24" class="text-orange-500" />
@@ -132,7 +132,7 @@
             <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
               <div class="flex items-center justify-between">
                 <div>
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Puntuación Promedio</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ t('library.avgScore') }}</p>
                   <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ libraryStats.avgScore }}%</p>
                 </div>
                 <Award :size="24" class="text-purple-500" />
@@ -160,8 +160,8 @@
                     course.status === 'in-progress' ? 'bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200' :
                     'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200'
                   ]">
-                    {{ course.status === 'completed' ? 'Completed' : 
-                       course.status === 'in-progress' ? 'In Progress' : 'Not Started' }}
+                    {{ course.status === 'completed' ? t('status.completed') : 
+                       course.status === 'in-progress' ? t('status.inProgress') : t('library.notStarted') }}
                   </span>
                 </div>
               </div>
@@ -177,14 +177,14 @@
                     </div>
                     <div class="flex items-center space-x-1">
                       <Users :size="16" />
-                      <span>{{ course.enrolled }} enrolled</span>
+                      <span>{{ course.enrolled }} {{ t('library.enrolled') }}</span>
                     </div>
                   </div>
                 </div>
                 
                 <div class="mb-4">
                   <div class="flex items-center justify-between text-sm mb-1">
-                    <span class="text-gray-600 dark:text-gray-400">Progress</span>
+                    <span class="text-gray-600 dark:text-gray-400">{{ t('common.progress') }}</span>
                     <span class="font-medium text-gray-900 dark:text-white">{{ course.progress }}%</span>
                   </div>
                   <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2">
@@ -199,8 +199,8 @@
                 </div>
                 
                 <button class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors font-medium">
-                  {{ course.status === 'completed' ? 'Review' : 
-                     course.status === 'in-progress' ? 'Continue' : 'Start Course' }}
+                  {{ course.status === 'completed' ? t('library.review') : 
+                     course.status === 'in-progress' ? t('library.continue') : t('library.startCourse') }}
                 </button>
               </div>
             </div>
@@ -256,12 +256,12 @@ const libraryStats = ref({
   avgScore: 87
 })
 
-const courses = ref([
+const courses = computed(() => [
   {
     id: 1,
-    title: 'Food Safety Fundamentals',
+    title: t('courses.foodSafetyTitle'),
     category: 'Safety',
-    description: 'Learn the essential principles of food safety and hygiene in the workplace.',
+    description: t('courses.foodSafetyDesc'),
     duration: '45 min',
     enrolled: 156,
     progress: 74,
@@ -269,9 +269,9 @@ const courses = ref([
   },
   {
     id: 2,
-    title: 'Covid Protocols',
+    title: t('courses.covidProtocolsTitle'),
     category: 'Safety',
-    description: 'Comprehensive guide to COVID-19 safety protocols and procedures.',
+    description: t('courses.covidProtocolsDesc'),
     duration: '30 min',
     enrolled: 203,
     progress: 100,
@@ -279,9 +279,9 @@ const courses = ref([
   },
   {
     id: 3,
-    title: 'Cyber Security Basics',
+    title: t('courses.cyberSecurityTitle'),
     category: 'Security',
-    description: 'Introduction to cybersecurity best practices and threat awareness.',
+    description: t('courses.cyberSecurityDesc'),
     duration: '60 min',
     enrolled: 189,
     progress: 92,
@@ -289,9 +289,9 @@ const courses = ref([
   },
   {
     id: 4,
-    title: 'Compliance Basics Procedures',
+    title: t('courses.complianceBasicsTitle'),
     category: 'Compliance',
-    description: 'Understanding regulatory compliance and organizational procedures.',
+    description: t('courses.complianceBasicsDesc'),
     duration: '40 min',
     enrolled: 134,
     progress: 62,
@@ -299,9 +299,9 @@ const courses = ref([
   },
   {
     id: 5,
-    title: 'Social Media Policies',
+    title: t('courses.socialMediaTitle'),
     category: 'Compliance',
-    description: 'Guidelines for appropriate social media use in professional settings.',
+    description: t('courses.socialMediaDesc'),
     duration: '25 min',
     enrolled: 167,
     progress: 100,
@@ -309,9 +309,9 @@ const courses = ref([
   },
   {
     id: 6,
-    title: 'Company Networking',
+    title: t('courses.companyNetworkingTitle'),
     category: 'Networking',
-    description: 'Building professional relationships and networking within the organization.',
+    description: t('courses.companyNetworkingDesc'),
     duration: '35 min',
     enrolled: 98,
     progress: 36,

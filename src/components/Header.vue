@@ -10,13 +10,13 @@
           >
             <Menu :size="20" />
           </button>
-          <h1 class="text-xl lg:text-2xl font-semibold text-gray-900 dark:text-white">{{ title || 'Reportes' }}</h1>
+          <h1 class="text-xl lg:text-2xl font-semibold text-gray-900 dark:text-white">{{ title || t('nav.reports') }}</h1>
         </div>
         
         <!-- Filters - Only show on Reports page -->
         <div v-if="showFilters" class="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-2 sm:space-y-0">
           <div class="flex items-center space-x-2">
-            <label class="text-sm font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">Período:</label>
+            <label class="text-sm font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">{{ t('filters.timeframe') }}:</label>
             <select 
               v-model="selectedTimeframe"
               class="border border-gray-300 dark:border-gray-600 rounded-md px-3 py-1 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -33,7 +33,7 @@
           </div>
           
           <div class="flex items-center space-x-2">
-            <label class="text-sm font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">Personas:</label>
+            <label class="text-sm font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">{{ t('filters.people') }}:</label>
             <select 
               v-model="selectedPeople"
               class="border border-gray-300 dark:border-gray-600 rounded-md px-3 py-1 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -50,7 +50,7 @@
           </div>
           
           <div class="flex items-center space-x-2">
-            <label class="text-sm font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">Tema:</label>
+            <label class="text-sm font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">{{ t('filters.topic') }}:</label>
             <select 
               v-model="selectedTopic"
               class="border border-gray-300 dark:border-gray-600 rounded-md px-3 py-1 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -71,7 +71,7 @@
       <!-- Download Button -->
       <button class="flex items-center justify-center space-x-2 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
         <Download :size="16" />
-        <span class="hidden sm:inline">Descargar</span>
+        <span class="hidden sm:inline">{{ t('filters.download') }}</span>
       </button>
     </div>
   </header>
@@ -81,6 +81,7 @@
 import { ref, computed } from 'vue'
 import { Download, Menu } from 'lucide-vue-next'
 import { useDashboardStore } from '@/stores/dashboard'
+import { useI18n } from '@/composables/useI18n'
 
 interface Props {
   title?: string
@@ -88,7 +89,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  title: 'Reportes',
+  title: '',
   showFilters: true
 })
 
@@ -97,14 +98,29 @@ defineEmits<{
 }>()
 
 const dashboardStore = useDashboardStore()
+const { t } = useI18n()
 
 const selectedTimeframe = ref('all-time')
 const selectedPeople = ref('all')
 const selectedTopic = ref('all')
 
-const timeframeOptions = computed(() => dashboardStore.timeframeOptions)
-const peopleOptions = computed(() => dashboardStore.peopleOptions)
-const topicOptions = computed(() => dashboardStore.topicOptions)
+const timeframeOptions = computed(() => [
+  { label: t('filters.allTime'), value: 'all-time' },
+  { label: t('filters.last30Days'), value: '30d' },
+  { label: t('filters.last7Days'), value: '7d' }
+])
+
+const peopleOptions = computed(() => [
+  { label: t('filters.all'), value: 'all' },
+  { label: t('filters.activeUsers'), value: 'active' },
+  { label: t('filters.newUsers'), value: 'new' }
+])
+
+const topicOptions = computed(() => [
+  { label: t('filters.all'), value: 'all' },
+  { label: t('categories.security'), value: 'security' },
+  { label: t('categories.compliance'), value: 'compliance' }
+])
 
 const handleTimeframeChange = () => {
   dashboardStore.updateTimeframe(selectedTimeframe.value)

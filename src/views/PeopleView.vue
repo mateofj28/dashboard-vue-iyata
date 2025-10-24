@@ -64,7 +64,7 @@
       <div class="flex-1 flex flex-col">
         <!-- Header -->
         <Header 
-          title="Personas"
+          :title="t('people.title')"
           @toggle-mobile-menu="showMobileMenu = !showMobileMenu" 
         />
         
@@ -78,7 +78,7 @@
                 <input
                   v-model="searchQuery"
                   type="text"
-                  placeholder="Buscar personas..."
+                  :placeholder="t('people.search')"
                   class="pl-9 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-2.5 w-full text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>
@@ -87,20 +87,20 @@
                   v-model="selectedDepartment"
                   class="w-full sm:w-48 border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
-                  <option value="all">Todos los Departamentos</option>
-                  <option value="engineering">Ingeniería</option>
-                  <option value="marketing">Marketing</option>
-                  <option value="sales">Ventas</option>
-                  <option value="hr">Recursos Humanos</option>
-                  <option value="operations">Operaciones</option>
+                  <option value="all">{{ t('people.allDepartments') }}</option>
+                  <option value="engineering">{{ t('departments.engineering') }}</option>
+                  <option value="marketing">{{ t('departments.marketing') }}</option>
+                  <option value="sales">{{ t('departments.sales') }}</option>
+                  <option value="hr">{{ t('departments.hr') }}</option>
+                  <option value="operations">{{ t('departments.operations') }}</option>
                 </select>
                 <select 
                   v-model="selectedStatus"
                   class="w-full sm:w-32 border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
-                  <option value="all">Todos los Estados</option>
-                  <option value="active">Activo</option>
-                  <option value="inactive">Inactivo</option>
+                  <option value="all">{{ t('people.allStatus') }}</option>
+                  <option value="active">{{ t('status.active') }}</option>
+                  <option value="inactive">{{ t('status.inactive') }}</option>
                 </select>
               </div>
             </div>
@@ -112,8 +112,8 @@
               <div class="flex items-center justify-between">
                 <div class="min-w-0 flex-1">
                   <p class="text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400">
-                    <span class="sm:hidden">Total</span>
-                    <span class="hidden sm:inline">Total de Personas</span>
+                    <span class="sm:hidden">{{ t('common.total') }}</span>
+                    <span class="hidden sm:inline">{{ t('people.totalPeople') }}</span>
                   </p>
                   <p class="text-lg sm:text-xl lg:text-3xl font-bold text-gray-900 dark:text-white">{{ peopleStats.total }}</p>
                 </div>
@@ -125,8 +125,8 @@
               <div class="flex items-center justify-between">
                 <div class="min-w-0 flex-1">
                   <p class="text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400">
-                    <span class="sm:hidden">Activos</span>
-                    <span class="hidden sm:inline">Usuarios Activos</span>
+                    <span class="sm:hidden">{{ t('status.active') }}</span>
+                    <span class="hidden sm:inline">{{ t('people.activeUsers') }}</span>
                   </p>
                   <p class="text-lg sm:text-xl lg:text-3xl font-bold text-gray-900 dark:text-white">{{ peopleStats.active }}</p>
                 </div>
@@ -138,8 +138,8 @@
               <div class="flex items-center justify-between">
                 <div class="min-w-0 flex-1">
                   <p class="text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400">
-                    <span class="sm:hidden">Departamentos</span>
-                    <span class="hidden sm:inline">Departamentos</span>
+                    <span class="sm:hidden">{{ t('people.departments') }}</span>
+                    <span class="hidden sm:inline">{{ t('people.departments') }}</span>
                   </p>
                   <p class="text-lg sm:text-xl lg:text-3xl font-bold text-gray-900 dark:text-white">{{ peopleStats.departments }}</p>
                 </div>
@@ -151,8 +151,8 @@
               <div class="flex items-center justify-between">
                 <div class="min-w-0 flex-1">
                   <p class="text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400">
-                    <span class="sm:hidden">Promedio</span>
-                    <span class="hidden sm:inline">Promedio de Finalización</span>
+                    <span class="sm:hidden">{{ t('common.avg') }}</span>
+                    <span class="hidden sm:inline">{{ t('people.avgCompletion') }}</span>
                   </p>
                   <p class="text-lg sm:text-xl lg:text-3xl font-bold text-gray-900 dark:text-white">{{ peopleStats.avgCompletion }}%</p>
                 </div>
@@ -164,7 +164,7 @@
           <!-- People Table/Cards -->
           <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
             <div class="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 border-b border-gray-200 dark:border-gray-700">
-              <h3 class="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">Miembros del Equipo</h3>
+              <h3 class="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">{{ t('people.teamMembers') }}</h3>
             </div>
             
             <!-- Desktop Table View -->
@@ -173,22 +173,22 @@
                 <thead class="bg-gray-50 dark:bg-gray-700">
                   <tr>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                      Persona
+                      {{ t('people.person') }}
                     </th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                      Departamento
+                      {{ t('people.department') }}
                     </th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                      Rol
+                      {{ t('people.role') }}
                     </th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                      Progreso
+                      {{ t('people.progress') }}
                     </th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                      Última Actividad
+                      {{ t('people.lastActive') }}
                     </th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                      Estado
+                      {{ t('people.status') }}
                     </th>
                   </tr>
                 </thead>
@@ -212,10 +212,10 @@
                       </div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="text-sm text-gray-900 dark:text-white">{{ person.department }}</div>
+                      <div class="text-sm text-gray-900 dark:text-white">{{ translateDepartment(person.department) }}</div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="text-sm text-gray-900 dark:text-white">{{ person.role }}</div>
+                      <div class="text-sm text-gray-900 dark:text-white">{{ translateRole(person.role) }}</div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                       <div class="flex items-center">
@@ -234,7 +234,7 @@
                       </div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                      {{ person.lastActive }}
+                      {{ translateTime(person.lastActive) }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                       <span :class="[
@@ -243,7 +243,7 @@
                           ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200' 
                           : 'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200'
                       ]">
-                        {{ person.status }}
+                        {{ translateStatus(person.status) }}
                       </span>
                     </td>
                   </tr>
@@ -281,7 +281,7 @@
                           ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200' 
                           : 'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200'
                       ]">
-                        {{ person.status }}
+                        {{ translateStatus(person.status) }}
                       </span>
                     </div>
                     
@@ -303,7 +303,7 @@
                     </div>
                     
                     <div class="mt-1 sm:mt-2 text-xs text-gray-500 dark:text-gray-400">
-                      {{ person.lastActive }}
+                      {{ translateTime(person.lastActive) }}
                     </div>
                   </div>
                 </div>
@@ -340,6 +340,55 @@ const showMobileMenu = ref(false)
 const searchQuery = ref('')
 const selectedDepartment = ref('all')
 const selectedStatus = ref('all')
+
+// Translation functions
+const translateDepartment = (dept: string) => {
+  const deptMap: { [key: string]: string } = {
+    'Engineering': t('departments.engineering'),
+    'Marketing': t('departments.marketing'),
+    'Sales': t('departments.sales'),
+    'HR': t('departments.hr'),
+    'Operations': t('departments.operations')
+  }
+  return deptMap[dept] || dept
+}
+
+const translateStatus = (status: string) => {
+  const statusMap: { [key: string]: string } = {
+    'active': t('status.active'),
+    'inactive': t('status.inactive')
+  }
+  return statusMap[status] || status
+}
+
+const translateRole = (role: string) => {
+  const roleMap: { [key: string]: string } = {
+    'Senior Developer': t('roles.seniorDeveloper'),
+    'Software Engineer': t('roles.softwareEngineer'),
+    'Marketing Manager': t('roles.marketingManager'),
+    'Sales Representative': t('roles.salesRepresentative'),
+    'HR Specialist': t('roles.hrSpecialist'),
+    'Operations Manager': t('roles.operationsManager'),
+    'UX Designer': t('roles.uxDesigner'),
+    'Sales Manager': t('roles.salesManager')
+  }
+  return roleMap[role] || role
+}
+
+const translateTime = (timeStr: string) => {
+  if (timeStr.includes('hour ago')) {
+    return t('time.hourAgo')
+  } else if (timeStr.includes('hours ago')) {
+    const hours = timeStr.match(/(\d+)/)?.[1] || '0'
+    return t('time.hoursAgo').replace('{count}', hours)
+  } else if (timeStr.includes('day ago')) {
+    return t('time.dayAgo')
+  } else if (timeStr.includes('weeks ago')) {
+    const weeks = timeStr.match(/(\d+)/)?.[1] || '0'
+    return t('time.weeksAgo').replace('{count}', weeks)
+  }
+  return timeStr
+}
 
 // Menu items for mobile sidebar
 const menuItems = ref([
