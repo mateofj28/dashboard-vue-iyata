@@ -2,6 +2,12 @@
 
 Un dashboard completo de aprendizaje empresarial inspirado en el diseño de Tesla, construido con Vue 3, TypeScript, Tailwind CSS y las mejores prácticas de desarrollo moderno. Replica fielmente el diseño original de Figma con funcionalidad completa e interactividad real.
 
+## 🎨 Diseño de Inspiración
+
+**📐 Figma Original**: [Ver diseño de inspiración en Figma](https://www.figma.com/design/your-figma-link-here)
+
+*Este proyecto es una implementación fiel del diseño proporcionado, replicando cada detalle visual y funcional con tecnologías web modernas.*
+
 ## 📸 Vista Previa del Dashboard
 
 ### 📊 **Reports - Dashboard Principal**
