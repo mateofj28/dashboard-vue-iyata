@@ -7,9 +7,9 @@
       <!-- Mobile Sidebar Overlay -->
       <div v-if="showMobileMenu" class="fixed inset-0 z-50 lg:hidden" @click="showMobileMenu = false">
         <div class="absolute inset-0 bg-black opacity-50"></div>
-        <div class="absolute left-0 top-0 h-full w-64 bg-white border-r border-gray-200 flex flex-col">
+        <div class="absolute left-0 top-0 h-full w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col">
           <!-- Tesla Logo -->
-          <div class="p-6 border-b border-gray-200">
+          <div class="p-6 border-b border-gray-200 dark:border-gray-700">
             <div class="flex items-center space-x-2">
               <div class="text-tesla-red font-bold text-xl tracking-wider">TESLA</div>
             </div>
@@ -20,8 +20,8 @@
             <RouterLink v-for="item in menuItems" :key="item.name" :to="item.route" :class="[
               'flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium cursor-pointer transition-colors',
               $route.name === item.route.name
-                ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700'
-                : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border-r-2 border-blue-700 dark:border-blue-500'
+                : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white'
             ]" @click="showMobileMenu = false">
               <component :is="item.icon" :size="20" />
               <span>{{ item.name }}</span>
@@ -29,13 +29,13 @@
           </nav>
 
           <!-- Support Section -->
-          <div class="px-4 py-6 border-t border-gray-200">
-            <div class="text-sm font-medium text-gray-500 mb-4">Support</div>
+          <div class="px-4 py-6 border-t border-gray-200 dark:border-gray-700">
+            <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">Support</div>
             <RouterLink v-for="item in supportItems" :key="item.name" :to="item.route" :class="[
               'flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium cursor-pointer transition-colors',
               $route.name === item.route.name
-                ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700'
-                : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border-r-2 border-blue-700 dark:border-blue-500'
+                : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white'
             ]" @click="showMobileMenu = false">
               <component :is="item.icon" :size="20" />
               <span>{{ item.name }}</span>
@@ -54,9 +54,9 @@
           <div class="max-w-4xl mx-auto space-y-8">
 
             <!-- Profile Settings -->
-            <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
-              <div class="px-6 py-4 border-b border-gray-200">
-                <h3 class="text-lg font-semibold text-gray-900 flex items-center">
+            <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+              <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white flex items-center">
                   <User :size="20" class="mr-2" />
                   Profile Settings
                 </h3>
@@ -72,27 +72,27 @@
                     </button>
                   </div>
                   <div>
-                    <h4 class="text-xl font-semibold text-gray-900">{{ userProfile.name }}</h4>
-                    <p class="text-gray-600">{{ userProfile.role }}</p>
-                    <p class="text-sm text-gray-500">{{ userProfile.email }}</p>
+                    <h4 class="text-xl font-semibold text-gray-900 dark:text-white">{{ userProfile.name }}</h4>
+                    <p class="text-gray-600 dark:text-gray-400">{{ userProfile.role }}</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">{{ userProfile.email }}</p>
                   </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Full Name</label>
                     <input v-model="userProfile.name" type="text"
-                      class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                      class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
                   </div>
                   <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email</label>
                     <input v-model="userProfile.email" type="email"
-                      class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                      class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
                   </div>
                   <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Department</label>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Department</label>
                     <select v-model="userProfile.department"
-                      class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                      class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                       <option value="engineering">Engineering</option>
                       <option value="marketing">Marketing</option>
                       <option value="sales">Sales</option>
@@ -101,9 +101,9 @@
                     </select>
                   </div>
                   <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Role</label>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Role</label>
                     <input v-model="userProfile.role" type="text"
-                      class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                      class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
                   </div>
                 </div>
               </div>

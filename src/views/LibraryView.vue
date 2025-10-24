@@ -11,9 +11,9 @@
         @click="showMobileMenu = false"
       >
         <div class="absolute inset-0 bg-black opacity-50"></div>
-        <div class="absolute left-0 top-0 h-full w-64 bg-white border-r border-gray-200 flex flex-col">
+        <div class="absolute left-0 top-0 h-full w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col">
           <!-- Tesla Logo -->
-          <div class="p-6 border-b border-gray-200">
+          <div class="p-6 border-b border-gray-200 dark:border-gray-700">
             <div class="flex items-center space-x-2">
               <div class="text-tesla-red font-bold text-xl tracking-wider">TESLA</div>
             </div>
@@ -28,8 +28,8 @@
               :class="[
                 'flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium cursor-pointer transition-colors',
                 $route.name === item.route.name
-                  ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700' 
-                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                  ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border-r-2 border-blue-700 dark:border-blue-500' 
+                  : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white'
               ]"
               @click="showMobileMenu = false"
             >
@@ -39,8 +39,8 @@
           </nav>
 
           <!-- Support Section -->
-          <div class="px-4 py-6 border-t border-gray-200">
-            <div class="text-sm font-medium text-gray-500 mb-4">Support</div>
+          <div class="px-4 py-6 border-t border-gray-200 dark:border-gray-700">
+            <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">Support</div>
             <RouterLink
               v-for="item in supportItems" 
               :key="item.name"
@@ -48,8 +48,8 @@
               :class="[
                 'flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium cursor-pointer transition-colors',
                 $route.name === item.route.name
-                  ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700' 
-                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                  ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border-r-2 border-blue-700 dark:border-blue-500' 
+                  : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white'
               ]"
               @click="showMobileMenu = false"
             >
@@ -85,7 +85,7 @@
               <div class="flex items-center space-x-4">
                 <select 
                   v-model="selectedCategory"
-                  class="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  class="border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   <option value="all">All Categories</option>
                   <option value="security">Security</option>
@@ -99,41 +99,41 @@
 
           <!-- Stats Cards -->
           <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-            <div class="bg-white rounded-lg border border-gray-200 p-6">
+            <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
               <div class="flex items-center justify-between">
                 <div>
-                  <p class="text-sm font-medium text-gray-500">Total Courses</p>
-                  <p class="text-3xl font-bold text-gray-900">{{ libraryStats.totalCourses }}</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Total Courses</p>
+                  <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ libraryStats.totalCourses }}</p>
                 </div>
                 <BookOpen :size="24" class="text-blue-500" />
               </div>
             </div>
             
-            <div class="bg-white rounded-lg border border-gray-200 p-6">
+            <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
               <div class="flex items-center justify-between">
                 <div>
-                  <p class="text-sm font-medium text-gray-500">Completed</p>
-                  <p class="text-3xl font-bold text-gray-900">{{ libraryStats.completed }}</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Completed</p>
+                  <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ libraryStats.completed }}</p>
                 </div>
                 <CheckCircle :size="24" class="text-green-500" />
               </div>
             </div>
             
-            <div class="bg-white rounded-lg border border-gray-200 p-6">
+            <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
               <div class="flex items-center justify-between">
                 <div>
-                  <p class="text-sm font-medium text-gray-500">In Progress</p>
-                  <p class="text-3xl font-bold text-gray-900">{{ libraryStats.inProgress }}</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">In Progress</p>
+                  <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ libraryStats.inProgress }}</p>
                 </div>
                 <Clock :size="24" class="text-orange-500" />
               </div>
             </div>
             
-            <div class="bg-white rounded-lg border border-gray-200 p-6">
+            <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
               <div class="flex items-center justify-between">
                 <div>
-                  <p class="text-sm font-medium text-gray-500">Avg. Score</p>
-                  <p class="text-3xl font-bold text-gray-900">{{ libraryStats.avgScore }}%</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Avg. Score</p>
+                  <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ libraryStats.avgScore }}%</p>
                 </div>
                 <Award :size="24" class="text-purple-500" />
               </div>
@@ -145,7 +145,7 @@
             <div 
               v-for="course in filteredCourses" 
               :key="course.id"
-              class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
+              class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
             >
               <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 relative">
                 <div class="absolute inset-0 bg-black bg-opacity-20"></div>
@@ -156,9 +156,9 @@
                 <div class="absolute top-4 right-4">
                   <span :class="[
                     'px-2 py-1 rounded-full text-xs font-medium',
-                    course.status === 'completed' ? 'bg-green-100 text-green-800' :
-                    course.status === 'in-progress' ? 'bg-orange-100 text-orange-800' :
-                    'bg-gray-100 text-gray-800'
+                    course.status === 'completed' ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200' :
+                    course.status === 'in-progress' ? 'bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200' :
+                    'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200'
                   ]">
                     {{ course.status === 'completed' ? 'Completed' : 
                        course.status === 'in-progress' ? 'In Progress' : 'Not Started' }}
@@ -167,10 +167,10 @@
               </div>
               
               <div class="p-6">
-                <p class="text-gray-600 text-sm mb-4">{{ course.description }}</p>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">{{ course.description }}</p>
                 
                 <div class="flex items-center justify-between mb-4">
-                  <div class="flex items-center space-x-4 text-sm text-gray-500">
+                  <div class="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400">
                     <div class="flex items-center space-x-1">
                       <Clock :size="16" />
                       <span>{{ course.duration }}</span>
@@ -184,10 +184,10 @@
                 
                 <div class="mb-4">
                   <div class="flex items-center justify-between text-sm mb-1">
-                    <span class="text-gray-600">Progress</span>
-                    <span class="font-medium">{{ course.progress }}%</span>
+                    <span class="text-gray-600 dark:text-gray-400">Progress</span>
+                    <span class="font-medium text-gray-900 dark:text-white">{{ course.progress }}%</span>
                   </div>
-                  <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2">
                     <div 
                       :class="[
                         'h-2 rounded-full transition-all duration-300',

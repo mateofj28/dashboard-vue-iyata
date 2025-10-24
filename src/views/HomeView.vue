@@ -11,9 +11,9 @@
         @click="showMobileMenu = false"
       >
         <div class="absolute inset-0 bg-black opacity-50"></div>
-        <div class="absolute left-0 top-0 h-full w-64 bg-white border-r border-gray-200 flex flex-col">
+        <div class="absolute left-0 top-0 h-full w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col">
           <!-- Tesla Logo -->
-          <div class="p-6 border-b border-gray-200">
+          <div class="p-6 border-b border-gray-200 dark:border-gray-700">
             <div class="flex items-center space-x-2">
               <div class="text-tesla-red font-bold text-xl tracking-wider">TESLA</div>
             </div>
@@ -28,8 +28,8 @@
               :class="[
                 'flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium cursor-pointer transition-colors',
                 $route.name === item.route.name
-                  ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700' 
-                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                  ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border-r-2 border-blue-700 dark:border-blue-500' 
+                  : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white'
               ]"
               @click="showMobileMenu = false"
             >
@@ -39,13 +39,13 @@
           </nav>
 
           <!-- Support Section -->
-          <div class="px-4 py-6 border-t border-gray-200">
-            <div class="text-sm font-medium text-gray-500 mb-4">Support</div>
+          <div class="px-4 py-6 border-t border-gray-200 dark:border-gray-700">
+            <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">Support</div>
             <RouterLink
               v-for="item in supportItems" 
               :key="item.name"
               :to="item.route"
-              class="flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 cursor-pointer transition-colors"
+              class="flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white cursor-pointer transition-colors"
               @click="showMobileMenu = false"
             >
               <component :is="item.icon" :size="20" />
@@ -98,7 +98,7 @@
             
             <!-- Activity Chart -->
             <div class="xl:col-span-1 min-w-0">
-              <div class="bg-white rounded-lg border border-gray-200 p-4 lg:p-6 h-full min-h-[200px]">
+              <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4 lg:p-6 h-full min-h-[200px]">
                 <ActivityChart />
               </div>
             </div>

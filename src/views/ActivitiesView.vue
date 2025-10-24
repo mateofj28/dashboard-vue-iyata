@@ -11,9 +11,9 @@
         @click="showMobileMenu = false"
       >
         <div class="absolute inset-0 bg-black opacity-50"></div>
-        <div class="absolute left-0 top-0 h-full w-64 bg-white border-r border-gray-200 flex flex-col">
+        <div class="absolute left-0 top-0 h-full w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col">
           <!-- Tesla Logo -->
-          <div class="p-6 border-b border-gray-200">
+          <div class="p-6 border-b border-gray-200 dark:border-gray-700">
             <div class="flex items-center space-x-2">
               <div class="text-tesla-red font-bold text-xl tracking-wider">TESLA</div>
             </div>
@@ -28,8 +28,8 @@
               :class="[
                 'flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium cursor-pointer transition-colors',
                 $route.name === item.route.name
-                  ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700' 
-                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                  ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border-r-2 border-blue-700 dark:border-blue-500' 
+                  : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white'
               ]"
               @click="showMobileMenu = false"
             >
@@ -39,8 +39,8 @@
           </nav>
 
           <!-- Support Section -->
-          <div class="px-4 py-6 border-t border-gray-200">
-            <div class="text-sm font-medium text-gray-500 mb-4">Support</div>
+          <div class="px-4 py-6 border-t border-gray-200 dark:border-gray-700">
+            <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">Support</div>
             <RouterLink
               v-for="item in supportItems" 
               :key="item.name"
@@ -48,8 +48,8 @@
               :class="[
                 'flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium cursor-pointer transition-colors',
                 $route.name === item.route.name
-                  ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700' 
-                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                  ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border-r-2 border-blue-700 dark:border-blue-500' 
+                  : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white'
               ]"
               @click="showMobileMenu = false"
             >
@@ -72,7 +72,7 @@
         <main class="flex-1 p-4 lg:p-6 overflow-auto">
           <!-- Filter Tabs -->
           <div class="mb-6">
-            <div class="border-b border-gray-200">
+            <div class="border-b border-gray-200 dark:border-gray-700">
               <nav class="-mb-px flex space-x-8">
                 <button
                   v-for="tab in tabs"
@@ -80,8 +80,8 @@
                   :class="[
                     'py-2 px-1 border-b-2 font-medium text-sm transition-colors',
                     activeTab === tab.id
-                      ? 'border-blue-500 text-blue-600'
-                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                      ? 'border-blue-500 text-blue-600 dark:text-blue-400'
+                      : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600'
                   ]"
                   @click="activeTab = tab.id"
                 >
@@ -93,41 +93,41 @@
 
           <!-- Stats Cards -->
           <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-            <div class="bg-white rounded-lg border border-gray-200 p-6">
+            <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
               <div class="flex items-center justify-between">
                 <div>
-                  <p class="text-sm font-medium text-gray-500">Total Activities</p>
-                  <p class="text-3xl font-bold text-gray-900">{{ activityStats.total }}</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Total Activities</p>
+                  <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ activityStats.total }}</p>
                 </div>
                 <Activity :size="24" class="text-blue-500" />
               </div>
             </div>
             
-            <div class="bg-white rounded-lg border border-gray-200 p-6">
+            <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
               <div class="flex items-center justify-between">
                 <div>
-                  <p class="text-sm font-medium text-gray-500">Completed Today</p>
-                  <p class="text-3xl font-bold text-gray-900">{{ activityStats.completedToday }}</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Completed Today</p>
+                  <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ activityStats.completedToday }}</p>
                 </div>
                 <CheckCircle :size="24" class="text-green-500" />
               </div>
             </div>
             
-            <div class="bg-white rounded-lg border border-gray-200 p-6">
+            <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
               <div class="flex items-center justify-between">
                 <div>
-                  <p class="text-sm font-medium text-gray-500">In Progress</p>
-                  <p class="text-3xl font-bold text-gray-900">{{ activityStats.inProgress }}</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">In Progress</p>
+                  <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ activityStats.inProgress }}</p>
                 </div>
                 <Clock :size="24" class="text-orange-500" />
               </div>
             </div>
             
-            <div class="bg-white rounded-lg border border-gray-200 p-6">
+            <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
               <div class="flex items-center justify-between">
                 <div>
-                  <p class="text-sm font-medium text-gray-500">Avg. Duration</p>
-                  <p class="text-3xl font-bold text-gray-900">{{ activityStats.avgDuration }}</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Avg. Duration</p>
+                  <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ activityStats.avgDuration }}</p>
                 </div>
                 <Timer :size="24" class="text-purple-500" />
               </div>
@@ -135,16 +135,16 @@
           </div>
 
           <!-- Activity Feed -->
-          <div class="bg-white rounded-lg border border-gray-200">
-            <div class="px-6 py-4 border-b border-gray-200">
-              <h3 class="text-lg font-semibold text-gray-900">Recent Activities</h3>
+          <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+            <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Recent Activities</h3>
             </div>
             
-            <div class="divide-y divide-gray-200">
+            <div class="divide-y divide-gray-200 dark:divide-gray-700">
               <div 
                 v-for="activity in filteredActivities" 
                 :key="activity.id"
-                class="p-6 hover:bg-gray-50 transition-colors"
+                class="p-6 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
               >
                 <div class="flex items-start space-x-4">
                   <div :class="[
@@ -157,21 +157,21 @@
                   <div class="flex-1 min-w-0">
                     <div class="flex items-center justify-between">
                       <div class="flex items-center space-x-2">
-                        <p class="text-sm font-medium text-gray-900">{{ activity.title }}</p>
+                        <p class="text-sm font-medium text-gray-900 dark:text-white">{{ activity.title }}</p>
                         <span :class="[
                           'inline-flex px-2 py-1 text-xs font-semibold rounded-full',
-                          activity.status === 'completed' ? 'bg-green-100 text-green-800' :
-                          activity.status === 'in-progress' ? 'bg-orange-100 text-orange-800' :
-                          activity.status === 'pending' ? 'bg-gray-100 text-gray-800' :
-                          'bg-red-100 text-red-800'
+                          activity.status === 'completed' ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200' :
+                          activity.status === 'in-progress' ? 'bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200' :
+                          activity.status === 'pending' ? 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200' :
+                          'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200'
                         ]">
                           {{ activity.status }}
                         </span>
                       </div>
-                      <p class="text-sm text-gray-500">{{ activity.timestamp }}</p>
+                      <p class="text-sm text-gray-500 dark:text-gray-400">{{ activity.timestamp }}</p>
                     </div>
                     
-                    <p class="text-sm text-gray-600 mt-1">{{ activity.description }}</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">{{ activity.description }}</p>
                     
                     <div class="flex items-center space-x-4 mt-2">
                       <div class="flex items-center space-x-1">
@@ -180,15 +180,15 @@
                           :alt="activity.user.name"
                           class="w-6 h-6 rounded-full object-cover"
                         />
-                        <span class="text-sm text-gray-500">{{ activity.user.name }}</span>
+                        <span class="text-sm text-gray-500 dark:text-gray-400">{{ activity.user.name }}</span>
                       </div>
                       
-                      <div class="flex items-center space-x-1 text-sm text-gray-500">
+                      <div class="flex items-center space-x-1 text-sm text-gray-500 dark:text-gray-400">
                         <Clock :size="14" />
                         <span>{{ activity.duration }}</span>
                       </div>
                       
-                      <div v-if="activity.score" class="flex items-center space-x-1 text-sm text-gray-500">
+                      <div v-if="activity.score" class="flex items-center space-x-1 text-sm text-gray-500 dark:text-gray-400">
                         <Award :size="14" />
                         <span>{{ activity.score }}%</span>
                       </div>

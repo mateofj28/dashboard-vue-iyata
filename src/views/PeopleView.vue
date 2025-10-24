@@ -11,9 +11,9 @@
         @click="showMobileMenu = false"
       >
         <div class="absolute inset-0 bg-black opacity-50"></div>
-        <div class="absolute left-0 top-0 h-full w-64 bg-white border-r border-gray-200 flex flex-col">
+        <div class="absolute left-0 top-0 h-full w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col">
           <!-- Tesla Logo -->
-          <div class="p-6 border-b border-gray-200">
+          <div class="p-6 border-b border-gray-200 dark:border-gray-700">
             <div class="flex items-center space-x-2">
               <div class="text-tesla-red font-bold text-xl tracking-wider">TESLA</div>
             </div>
@@ -28,8 +28,8 @@
               :class="[
                 'flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium cursor-pointer transition-colors',
                 $route.name === item.route.name
-                  ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700' 
-                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                  ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border-r-2 border-blue-700 dark:border-blue-500' 
+                  : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white'
               ]"
               @click="showMobileMenu = false"
             >
@@ -39,8 +39,8 @@
           </nav>
 
           <!-- Support Section -->
-          <div class="px-4 py-6 border-t border-gray-200">
-            <div class="text-sm font-medium text-gray-500 mb-4">Support</div>
+          <div class="px-4 py-6 border-t border-gray-200 dark:border-gray-700">
+            <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">Support</div>
             <RouterLink
               v-for="item in supportItems" 
               :key="item.name"
@@ -48,8 +48,8 @@
               :class="[
                 'flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium cursor-pointer transition-colors',
                 $route.name === item.route.name
-                  ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700' 
-                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                  ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border-r-2 border-blue-700 dark:border-blue-500' 
+                  : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white'
               ]"
               @click="showMobileMenu = false"
             >
@@ -74,18 +74,18 @@
           <div class="mb-6">
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div class="relative">
-                <Search :size="20" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                <Search :size="20" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500" />
                 <input
                   v-model="searchQuery"
                   type="text"
                   placeholder="Search people by name, department, or role..."
-                  class="pl-10 pr-4 py-2 w-full sm:w-80 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  class="pl-10 pr-4 py-2 w-full sm:w-80 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>
               <div class="flex items-center space-x-4">
                 <select 
                   v-model="selectedDepartment"
-                  class="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  class="border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   <option value="all">All Departments</option>
                   <option value="engineering">Engineering</option>
@@ -96,7 +96,7 @@
                 </select>
                 <select 
                   v-model="selectedStatus"
-                  class="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  class="border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   <option value="all">All Status</option>
                   <option value="active">Active</option>
@@ -108,41 +108,41 @@
 
           <!-- Stats Cards -->
           <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-            <div class="bg-white rounded-lg border border-gray-200 p-6">
+            <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
               <div class="flex items-center justify-between">
                 <div>
-                  <p class="text-sm font-medium text-gray-500">Total People</p>
-                  <p class="text-3xl font-bold text-gray-900">{{ peopleStats.total }}</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Total People</p>
+                  <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ peopleStats.total }}</p>
                 </div>
                 <Users :size="24" class="text-blue-500" />
               </div>
             </div>
             
-            <div class="bg-white rounded-lg border border-gray-200 p-6">
+            <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
               <div class="flex items-center justify-between">
                 <div>
-                  <p class="text-sm font-medium text-gray-500">Active Users</p>
-                  <p class="text-3xl font-bold text-gray-900">{{ peopleStats.active }}</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Active Users</p>
+                  <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ peopleStats.active }}</p>
                 </div>
                 <UserCheck :size="24" class="text-green-500" />
               </div>
             </div>
             
-            <div class="bg-white rounded-lg border border-gray-200 p-6">
+            <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
               <div class="flex items-center justify-between">
                 <div>
-                  <p class="text-sm font-medium text-gray-500">Departments</p>
-                  <p class="text-3xl font-bold text-gray-900">{{ peopleStats.departments }}</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Departments</p>
+                  <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ peopleStats.departments }}</p>
                 </div>
                 <Building :size="24" class="text-purple-500" />
               </div>
             </div>
             
-            <div class="bg-white rounded-lg border border-gray-200 p-6">
+            <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
               <div class="flex items-center justify-between">
                 <div>
-                  <p class="text-sm font-medium text-gray-500">Avg. Completion</p>
-                  <p class="text-3xl font-bold text-gray-900">{{ peopleStats.avgCompletion }}%</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Avg. Completion</p>
+                  <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ peopleStats.avgCompletion }}%</p>
                 </div>
                 <TrendingUp :size="24" class="text-orange-500" />
               </div>
@@ -150,40 +150,40 @@
           </div>
 
           <!-- People Table -->
-          <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
-            <div class="px-6 py-4 border-b border-gray-200">
-              <h3 class="text-lg font-semibold text-gray-900">Team Members</h3>
+          <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Team Members</h3>
             </div>
             
             <div class="overflow-x-auto">
-              <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-50">
+              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                <thead class="bg-gray-50 dark:bg-gray-700">
                   <tr>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                       Person
                     </th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                       Department
                     </th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                       Role
                     </th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                       Progress
                     </th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                       Last Active
                     </th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                       Status
                     </th>
                   </tr>
                 </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
+                <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
                   <tr 
                     v-for="person in filteredPeople" 
                     :key="person.id"
-                    class="hover:bg-gray-50 transition-colors"
+                    class="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
                   >
                     <td class="px-6 py-4 whitespace-nowrap">
                       <div class="flex items-center">
@@ -193,20 +193,20 @@
                           class="w-10 h-10 rounded-full object-cover"
                         />
                         <div class="ml-4">
-                          <div class="text-sm font-medium text-gray-900">{{ person.name }}</div>
-                          <div class="text-sm text-gray-500">{{ person.email }}</div>
+                          <div class="text-sm font-medium text-gray-900 dark:text-white">{{ person.name }}</div>
+                          <div class="text-sm text-gray-500 dark:text-gray-400">{{ person.email }}</div>
                         </div>
                       </div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="text-sm text-gray-900">{{ person.department }}</div>
+                      <div class="text-sm text-gray-900 dark:text-white">{{ person.department }}</div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="text-sm text-gray-900">{{ person.role }}</div>
+                      <div class="text-sm text-gray-900 dark:text-white">{{ person.role }}</div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                       <div class="flex items-center">
-                        <div class="w-16 bg-gray-200 rounded-full h-2 mr-2">
+                        <div class="w-16 bg-gray-200 dark:bg-gray-600 rounded-full h-2 mr-2">
                           <div 
                             :class="[
                               'h-2 rounded-full',
@@ -217,18 +217,18 @@
                             :style="{ width: `${person.progress}%` }"
                           ></div>
                         </div>
-                        <span class="text-sm font-medium text-gray-900">{{ person.progress }}%</span>
+                        <span class="text-sm font-medium text-gray-900 dark:text-white">{{ person.progress }}%</span>
                       </div>
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                       {{ person.lastActive }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                       <span :class="[
                         'inline-flex px-2 py-1 text-xs font-semibold rounded-full',
                         person.status === 'active' 
-                          ? 'bg-green-100 text-green-800' 
-                          : 'bg-red-100 text-red-800'
+                          ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200' 
+                          : 'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200'
                       ]">
                         {{ person.status }}
                       </span>
