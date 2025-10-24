@@ -2,6 +2,143 @@
 
 Un dashboard completo de aprendizaje empresarial inspirado en el diseño de Tesla, construido con Vue 3, TypeScript, Tailwind CSS y las mejores prácticas de desarrollo moderno. Replica fielmente el diseño original de Figma con funcionalidad completa e interactividad real.
 
+## 📸 Vista Previa del Dashboard
+
+### 📊 **Reports - Dashboard Principal**
+*Panel de control con métricas en tiempo real, filtros interactivos y análisis de conocimiento*
+
+![Reports Dashboard](https://github.com/user-attachments/assets/dashboard-reports.png)
+
+**Características:**
+- 📈 Métricas principales: Usuarios activos, preguntas respondidas, duración de sesión
+- 🎯 Análisis de conocimiento: Progreso inicial, actual y ganancia
+- 📊 Gráfico de actividad mensual interactivo
+- 🔍 Filtros funcionales: Timeframe, People, Topic
+- 📋 Temas más débiles y fuertes con iconos profesionales
+- 🏆 Leaderboards de usuarios y grupos con tendencias
+
+---
+
+### 📚 **Library - Biblioteca de Cursos**
+*Catálogo completo de cursos con búsqueda avanzada y seguimiento de progreso*
+
+![Library Page](https://github.com/user-attachments/assets/library-page.png)
+
+**Características:**
+- 🔍 Búsqueda inteligente por título, descripción y categoría
+- 🏷️ Filtros por categoría: Security, Safety, Compliance
+- 📊 Estadísticas: Total de cursos, completados, en progreso, puntuación promedio
+- 🎯 Estados de progreso visual con barras de progreso
+- 🎨 Cards interactivas con gradientes y hover effects
+- ⚡ Botones de acción: Continue, Review, Start Course
+
+---
+
+### 👥 **People - Gestión de Personas**
+*Directorio completo del equipo con estadísticas y seguimiento de progreso*
+
+![People Management](https://github.com/user-attachments/assets/people-page.png)
+
+**Características:**
+- 👤 Directorio completo con avatares y información detallada
+- 🔍 Búsqueda avanzada por nombre, email, departamento o rol
+- 🏢 Filtros por departamento y estado (activo/inactivo)
+- 📊 Estadísticas del equipo: Total, activos, departamentos, promedio de finalización
+- 📈 Barras de progreso individuales con códigos de color
+- ⏰ Información de última actividad y estado actual
+
+---
+
+### ⚙️ **Settings - Configuraciones**
+*Panel de configuración completo con perfil, notificaciones y preferencias*
+
+![Settings Page](https://github.com/user-attachments/assets/settings-page.png)
+
+**Características:**
+- 👤 Configuración de perfil con avatar editable
+- 🔔 Configuraciones de notificaciones con toggles animados
+- 🎨 Preferencias de apariencia: tema, idioma
+- 📧 Gestión de notificaciones: email, push, recordatorios
+- 💾 Botones de guardar y cancelar funcionales
+- 📱 Diseño completamente responsivo
+
+---
+
+### 📊 **Activities - Seguimiento de Actividades**
+*Feed en tiempo real de todas las actividades de aprendizaje del equipo*
+
+**Características:**
+- 📋 Feed de actividades en tiempo real con timestamps
+- 🏷️ Filtros por tipo: Cursos, Evaluaciones, Discusiones
+- 👤 Información detallada: usuario, duración, puntuación, estado
+- 📊 Estadísticas: Total de actividades, completadas hoy, en progreso
+- 🎯 Iconos diferenciados para cada tipo de actividad
+- ⏰ Timeline visual con estados y progreso
+
+---
+
+### 🚀 **Get Started - Página de Bienvenida**
+*Guía de inicio para nuevos usuarios con recursos y rutas de aprendizaje*
+
+**Características:**
+- 🎉 Banner de bienvenida con gradiente atractivo
+- 📋 Guía de 3 pasos para comenzar: Perfil, Biblioteca, Aprendizaje
+- 🛤️ 4 rutas de aprendizaje recomendadas con progreso
+- 📚 Recursos de ayuda: Guías, tutoriales, foro, soporte
+- 🧭 Navegación inteligente a otras secciones
+- 🎨 Diseño moderno con cards interactivas
+
+---
+
+## 🧭 Navegación Completa
+
+El dashboard incluye **6 páginas principales** con navegación fluida:
+
+| Página | Ruta | Descripción | Estado |
+|--------|------|-------------|---------|
+| 📊 **Reports** | `/` | Dashboard principal con métricas y filtros | ✅ Completo |
+| 📚 **Library** | `/library` | Biblioteca de cursos con búsqueda | ✅ Completo |
+| 👥 **People** | `/people` | Gestión de personas y equipos | ✅ Completo |
+| 📊 **Activities** | `/activities` | Seguimiento de actividades | ✅ Completo |
+| ⚙️ **Settings** | `/settings` | Configuraciones de usuario | ✅ Completo |
+| 🚀 **Get Started** | `/get-started` | Página de bienvenida | ✅ Completo |
+
+### 📱 **Navegación Responsiva**
+- **Desktop**: Sidebar fijo con navegación directa
+- **Mobile**: Menú hamburguesa con overlay
+- **Estado activo**: Indicador visual de página actual
+- **Transiciones**: Navegación fluida entre páginas
+
+---
+
+## ⚡ Características Técnicas Destacadas
+
+### 🔄 **Filtros Interactivos Reales**
+Los filtros no son decorativos - **realmente cambian los datos**:
+- **Timeframe**: All-time → Last 30 days → Last 7 days
+- **People**: All → Active Users → New Users
+- **Topic**: All → Security → Compliance
+
+### 🎨 **Diseño Fiel al Original**
+- ✅ **Réplica exacta** del diseño de Figma
+- ✅ **Iconos profesionales** (Lucide) en lugar de emojis
+- ✅ **Colores Tesla** oficiales (#E31937)
+- ✅ **Tipografía Inter** moderna y legible
+- ✅ **Espaciado perfecto** idéntico al diseño
+
+### 📱 **100% Responsivo**
+- ✅ **Sin desbordamientos** en ningún dispositivo
+- ✅ **Menú móvil** funcional con overlay
+- ✅ **Grids adaptativos** que se reorganizan automáticamente
+- ✅ **Touch-friendly** en dispositivos móviles
+
+### 🚀 **Tecnologías Modernas**
+- ✅ **Vue 3 + TypeScript** con Composition API
+- ✅ **Tailwind CSS** utility-first
+- ✅ **Pinia** para gestión de estado reactiva
+- ✅ **Vue Router** con lazy loading
+- ✅ **Vite** build tool ultra-rápido
+
 ## 🎯 Descripción del Proyecto
 
 Este proyecto es una implementación completa de un dashboard de aprendizaje empresarial que incluye:
