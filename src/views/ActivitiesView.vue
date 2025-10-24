@@ -178,7 +178,7 @@
                             activity.status === 'pending' ? 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200' :
                             'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200'
                           ]">
-                            {{ activity.status }}
+                            {{ translateActivityStatus(activity.status) }}
                           </span>
                         </div>
                       </div>
@@ -261,6 +261,16 @@ const translateActivityTime = (timeStr: string) => {
     return t('time.daysAgo').replace('{count}', days)
   }
   return timeStr
+}
+
+const translateActivityStatus = (status: string) => {
+  const statusMap: { [key: string]: string } = {
+    'completed': t('status.completed'),
+    'in-progress': t('status.inProgress'),
+    'pending': t('status.pending'),
+    'failed': t('status.failed')
+  }
+  return statusMap[status] || status
 }
 
 // Menu items for mobile sidebar
